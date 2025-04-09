@@ -1,12 +1,20 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "tatuajes";
+$host = 'localhost';
+$db   = 'aliensblood';
+$user = 'root';
+$pass = ''; 
+$charset = 'utf8mb4';
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (PDOException $e) {
+    die("Error de conexión: " . $e->getMessage());
 }
 ?>
