@@ -2,6 +2,8 @@
 session_start();
 require_once 'includes/db.php';
 
+// Consulta de solo 3 diseñadores
+$designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +15,7 @@ require_once 'includes/db.php';
 </head>
 <body>
     <header>
+        <!-- Lista de todas las páginas existentes -->
         <h1 class="site-title">ALiENS BLooD</h1>
         <nav>
             <ul>
@@ -32,33 +35,51 @@ require_once 'includes/db.php';
         </nav>
     </header>
 
+
+
+
+
+                <!-- Primera sección, slider automático que pasa imágenes desde la base de datos-->
     <main>
-        <section class="designer-list">
-            <h2>Diseñadores de ALiENS BLooD</h2>
-            <div class="designers-grid">
-                <?php
-                try {
-                    $stmt = $pdo->query("SELECT * FROM designers");
-                    while ($designer = $stmt->fetch()):
-                ?>
-                    <div class="designer-card">
-                        <img src="assets/img/<?= htmlspecialchars($designer['image']) ?>" alt="<?= htmlspecialchars($designer['name']) ?>">
-                        <h3><?= htmlspecialchars($designer['name']) ?></h3>
-                        <p><?= htmlspecialchars($designer['bio']) ?></p>
-                        <a href="appointment.php?designer_id=<?= $designer['id'] ?>" class="btn">Agendar Cita</a>
-                    </div>
-                <?php
-                    endwhile;
-                } catch (PDOException $e) {
-                    echo "<p class='error'>Error al cargar diseñadores: " . $e->getMessage() . "</p>";
-                }
-                ?>
+        <section class="slider-section">
+            <h2>Diseñadores Destacados</h2>
+            <div id="slider-container">
+                <div id="slider">
+                <?php foreach ($designers as $index => $designer): ?>
+                    <div class="slide<?= $index === 0 ? ' active' : '' ?>">
+                    <img src="assets/img/<?= htmlspecialchars($designer['image']) ?>" alt="<?= htmlspecialchars($designer['name']) ?>">
+                    <h3><?= htmlspecialchars($designer['name']) ?></h3>
+                    <p><?= htmlspecialchars($designer['bio']) ?></p>
             </div>
+                    <?php endforeach; ?>
+                    <div id="slider-container">
+    <button id="prev-btn" class="slider-btn">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    
+    <div id="slider"></div>
+    
+    <button id="next-btn" class="slider-btn">
+        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </button>
+</div>
+
         </section>
     </main>
 
+
+
+
+
+
+                <!-- Pie de página -->
     <footer>
         <p>&copy; <?= date("Y") ?> ALiENS BLooD. Todos los derechos reservados.</p>
     </footer>
+                
+
+
+                <!-- SCRIPT SLIDER-->
+    <script src="assets/js/slider.js"></script>
 </body>
 </html>

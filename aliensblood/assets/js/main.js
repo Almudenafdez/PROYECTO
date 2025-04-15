@@ -1,3 +1,4 @@
+// Aceptar las cookies y que aparezcan en ventana
 function aceptarCookies() {
     localStorage.setItem('cookiesAceptadas', 'true');
     document.getElementById('cookie-banner').style.display = 'none';

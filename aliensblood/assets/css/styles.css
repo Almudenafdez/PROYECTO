@@ -91,7 +91,7 @@ footer {
     text-align: center;
     padding: 10px;
     box-shadow: 0 -2px 10px #00ffaa33;
-    display: none; /* Mostrar con JS si no ha aceptado */
+    display: none;
 }
 
 /* Efectos animados */
@@ -102,4 +102,92 @@ footer {
 @keyframes fadeIn {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide automático, imágenes que se desplazan solas de la base de datos */
+.slider-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+#slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.slide {
+    display: none;
+    padding: 20px;
+    transition: opacity 1s ease-in-out;
+    background-color: #111;
+    color: white;
+}
+
+.slide img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slide.active {
+    display: block;
+}
+
+/*Extras de slider*/
+#slider-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    border-radius: 16px;
+    border: 2px solid #39FF14;
+    box-shadow: 0 0 40px rgba(57, 255, 20, 0.5);
+    padding: 20px 0;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #39FF14;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slider-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 20px #39FF14, 0 0 30px #39FF14;
+}
+
+.slider-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #39FF14;
+}
+
+#prev-btn {
+    left: 20px;
+}
+
+#next-btn {
+    right: 20px;
+}
+
+#slider img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    transition: opacity 0.5s ease;
 }
