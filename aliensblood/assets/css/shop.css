@@ -1,0 +1,125 @@
+.shop-section {
+    padding: 2rem;
+    background-color: #111;
+    color: #f0f0f0;
+    text-align: center;
+}
+
+.shop-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00ffaa;
+}
+
+.filter-form {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.filter-form label {
+    color: #ccc;
+    margin-right: 0.5rem;
+}
+
+.filter-form select {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.designs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.design-card {
+    background-color: #1c1c1c;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+.design-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ffaa;
+}
+
+.design-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid #00ffaa;
+}
+
+.design-card h3 {
+    margin: 0.8rem;
+    font-size: 1.1rem;
+    color: #00ffaa;
+}
+
+.adult-warning {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: crimson;
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.design-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+}
+
+.btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-details {
+    background-color: #0ff;
+    color: #000;
+}
+
+.btn-details:hover {
+    background-color: #0cc;
+}
+
+.btn-cart {
+    background-color: #111;
+    border: 1px solid #0ff;
+    color: #0ff;
+}
+
+.btn-cart:hover {
+    background-color: #0ff;
+    color: #000;
+}
+.alert-success {
+    background-color: #0f0;
+    color: #000;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
