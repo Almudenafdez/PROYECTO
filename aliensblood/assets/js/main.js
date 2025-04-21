@@ -38,3 +38,10 @@ function validarFormulario() {
     }
     return true;
 }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const animated = document.querySelectorAll('.fade-in-up');
+        animated.forEach(el => {
+            el.classList.add('visible');
+        });
+    });

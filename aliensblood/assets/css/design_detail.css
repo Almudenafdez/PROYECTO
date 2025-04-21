@@ -84,3 +84,24 @@
     margin-bottom: 6px;
     color: #ddd;
 }
+#commentList li {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#commentList .delete-comment {
+    background-color: #a00;
+    color: white;
+    border: none;
+    padding: 3px 7px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+#commentList .delete-comment:hover {
+    background-color: #c00;
+}

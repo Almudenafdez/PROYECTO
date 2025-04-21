@@ -1,42 +1,55 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const designId = document.body.getAttribute("data-design-id"); // ← importante: design_detail.php debe tener esto
+    const designId = document.body.getAttribute("data-design-id");
     const likeBtn = document.getElementById("likeBtn");
     const likeCount = document.getElementById("likeCount");
     const commentInput = document.getElementById("commentInput");
     const commentList = document.getElementById("commentList");
     const addCommentBtn = document.getElementById("addComment");
 
-    // --- LIKES ---
     const likesKey = `likes_${designId}`;
-    let likes = parseInt(localStorage.getItem(likesKey)) || 0;
-    likeCount.textContent = likes;
-
-    // Check if already liked
     const likedKey = `liked_${designId}`;
-    if (localStorage.getItem(likedKey)) {
-        likeBtn.disabled = true;
-        likeBtn.textContent = "Ya te gusta";
-    }
+    const commentsKey = `comments_${designId}`;
+
+    let likes = parseInt(localStorage.getItem(likesKey)) || 0;
+    let liked = localStorage.getItem(likedKey) === "true";
+
+    likeCount.textContent = likes;
+    updateLikeButton();
 
     likeBtn.addEventListener("click", () => {
-        likes += 1;
+        liked = !liked;
+        likes = liked ? likes + 1 : likes - 1;
         localStorage.setItem(likesKey, likes);
-        localStorage.setItem(likedKey, "true");
+        localStorage.setItem(likedKey, liked);
         likeCount.textContent = likes;
-        likeBtn.disabled = true;
-        likeBtn.textContent = "Ya te gusta";
+        updateLikeButton();
     });
 
+    function updateLikeButton() {
+        likeBtn.textContent = liked ? "Quitar Me Gusta" : "Me Gusta";
+    }
+
     // --- COMENTARIOS ---
-    const commentsKey = `comments_${designId}`;
     let comments = JSON.parse(localStorage.getItem(commentsKey)) || [];
 
     const renderComments = () => {
         commentList.innerHTML = "";
-        comments.forEach(comment => {
+        comments.forEach((comment, index) => {
             const li = document.createElement("li");
-            li.textContent = comment;
+            li.innerHTML = `
+                <span>${comment}</span>
+                <button class="delete-comment" data-index="${index}">Eliminar</button>
+            `;
             commentList.appendChild(li);
+        });
+
+        document.querySelectorAll(".delete-comment").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const index = e.target.getAttribute("data-index");
+                comments.splice(index, 1);
+                localStorage.setItem(commentsKey, JSON.stringify(comments));
+                renderComments();
+            });
         });
     };
 

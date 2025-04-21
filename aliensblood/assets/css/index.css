@@ -1,0 +1,126 @@
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.benefits {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.benefit {
+    width: 280px;
+    height: 200px;
+    border-radius: 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #222; /* fallback */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    transition: transform 0.3s ease;
+    
+    /* Animación */
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+}
+
+.benefit:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.benefit:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.benefit:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.benefit:hover {
+    transform: scale(1.03);
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+}
+.benefit {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.benefit.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*RESERVA*/
+.cta-reserva {
+    background-color: #0f0f0f;
+    padding: 100px 20px;
+    text-align: center;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animated-title {
+    font-size: 4rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: neonPulse 2s infinite;
+    margin-bottom: 30px;
+  }
+  
+  .btn-reserva {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #ff00cc;
+    color: #fff;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-reserva:hover {
+    background-color: #e600b7;
+    transform: scale(1.05);
+  }
+  
+  /* Animación brillante tipo neón */
+  @keyframes neonPulse {
+    0%, 100% {
+      text-shadow:
+        0 0 5px #ff00cc,
+        0 0 10px #ff00cc,
+        0 0 20px #ff00cc,
+        0 0 30px #ff33cc;
+    }
+    50% {
+      text-shadow:
+        0 0 10px #ff00cc,
+        0 0 20px #ff33cc,
+        0 0 40px #ff33cc,
+        0 0 60px #ff66cc;
+    }
+  }
+  

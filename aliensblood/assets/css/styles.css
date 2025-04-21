@@ -104,6 +104,58 @@ footer {
     100% { opacity: 1; transform: translateY(0); }
 }
 
+.animated-highlight {
+    background-color: #111;
+    color: #f0f0f0;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,255,255,0.1);
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.benefits-list li {
+    margin: 0.5rem 0;
+}
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-up.delay-1 {
+    transition-delay: 0.4s;
+}
+
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+/*PÁGINA DE DISEÑADORES*/
+
+
 /* Slide automático, imágenes que se desplazan solas de la base de datos */
 .slider-section {
     max-width: 800px;
@@ -235,3 +287,57 @@ footer {
     object-fit: cover;
     border-radius: 6px;
 }
+.cta-reserva {
+    background-color: #0f0f0f;
+    padding: 100px 20px;
+    text-align: center;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animated-title {
+    font-size: 4rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: neonPulse 2s infinite;
+    margin-bottom: 30px;
+  }
+  
+  .btn-reserva {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #ff00cc;
+    color: #fff;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-reserva:hover {
+    background-color: #e600b7;
+    transform: scale(1.05);
+  }
+  
+  /* Animación brillante tipo neón */
+  @keyframes neonPulse {
+    0%, 100% {
+      text-shadow:
+        0 0 5px #ff00cc,
+        0 0 10px #ff00cc,
+        0 0 20px #ff00cc,
+        0 0 30px #ff33cc;
+    }
+    50% {
+      text-shadow:
+        0 0 10px #ff00cc,
+        0 0 20px #ff33cc,
+        0 0 40px #ff33cc,
+        0 0 60px #ff66cc;
+    }
+  }
+  
