@@ -75,6 +75,19 @@
 <footer>
     <p>&copy; <?= date("Y") ?> ALiENS BLooD. Todos los derechos reservados.</p>
 </footer>
+            <!-- COOKIES DE LA PÁGINA-->
+             <!-- Banner de cookies -->
+             <div id="cookie-banner" class="cookie-banner">
+  <p>
+    🍪 Este sitio utiliza cookies para mejorar tu experiencia. 
+    <a href="legal.php" style="color: #ffd700; text-decoration: underline;">Leer más</a>
+  </p>
+  <div class="cookie-actions">
+    <button id="accept-cookies">Aceptar</button>
+    <button id="ignore-cookies">Ignorar</button>
+  </div>
+</div>
+<script src="assets/js/cookies.js" defer></script>
 
 <div id="cookie-banner" class="cookie-banner">
     Este sitio usa cookies para mejorar tu experiencia.

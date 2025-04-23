@@ -1,0 +1,61 @@
+.login-page {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #7f00ff;
+    color: white;
+  }
+  
+  .login-page h2, h3 {
+    text-align: center;
+  }
+  
+  form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: white;
+  }
+  
+  form .btn, .btn-subscribe {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #7f00ff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  form .btn:hover, .btn-subscribe:hover {
+    background-color: #9a00ff;
+  }
+  
+  .error {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  
+  .success {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  

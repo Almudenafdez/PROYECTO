@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+//INDEX RESERVA
 document.addEventListener("DOMContentLoaded", function () {
     const benefits = document.querySelectorAll(".benefit");
 

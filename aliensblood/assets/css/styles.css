@@ -8,7 +8,7 @@
 /* Fondo y tipografía general */
 body {
     background-color: #0b0f0e;
-    color: #00ffaa;
+    color: #00ff0d;
     font-family: 'Orbitron', sans-serif;
     line-height: 1.6;
 }
@@ -68,7 +68,7 @@ main {
 }
 
 .btn:hover {
-    background-color: #ff00c8;
+    background-color: #9200e6;
     color: white;
 }
 
@@ -309,7 +309,7 @@ footer {
   .btn-reserva {
     display: inline-block;
     padding: 15px 40px;
-    background-color: #ff00cc;
+    background-color: #9200e6;
     color: #fff;
     font-size: 1.3rem;
     border: none;
@@ -319,7 +319,7 @@ footer {
   }
   
   .btn-reserva:hover {
-    background-color: #e600b7;
+    background-color: #9200e6;
     transform: scale(1.05);
   }
   
@@ -327,17 +327,74 @@ footer {
   @keyframes neonPulse {
     0%, 100% {
       text-shadow:
-        0 0 5px #ff00cc,
-        0 0 10px #ff00cc,
-        0 0 20px #ff00cc,
-        0 0 30px #ff33cc;
+        0 0 5px #00c3ff,
+        0 0 10px #00c3ff,
+        0 0 20px #00c3ff,
+        0 0 30px #91e5ff,
     }
     50% {
       text-shadow:
-        0 0 10px #ff00cc,
-        0 0 20px #ff33cc,
-        0 0 40px #ff33cc,
-        0 0 60px #ff66cc;
+        0 0 10px #1100ff,
+        0 0 20px #1100ff,
+        0 0 40px #1100ff,
+        0 0 60px #4b3eff,
+    }
+  }
+  
+  /*COOKIES*/
+  .cookie-banner {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 480px;
+    width: 90%;
+    background: rgba(34, 34, 34, 0.95);
+    color: #fff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    z-index: 9999;
+    display: none;
+    animation: fadeSlideIn 0.5s ease-out forwards;
+  }
+  
+  .cookie-banner p {
+    margin: 0 0 10px;
+    line-height: 1.5;
+  }
+  
+  .cookie-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .cookie-banner button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: #7f00ff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cookie-banner button:hover {
+    background-color: #9c40ff;
+  }
+  
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
   }
   

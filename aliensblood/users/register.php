@@ -1,30 +1,47 @@
-<?php include '../includes/db.php'; ?>
-<?php include '../includes/header.php'; ?>
+<?php
+session_start();
+?>
 
-<main>
-    <h2 class="fade-in">Registrarse</h2>
-    <form action="" method="post" onsubmit="return validarFormulario()">
-        <input type="text" name="name" placeholder="Nombre completo" required>
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <button type="submit" name="register">Crear cuenta</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro - ALiENS BLooD</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/register.css">
+</head>
+<body>
+  <header>
+    <h1 class="site-title">ALiENS BLooD</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.php">Inicio</a></li>
+        <li><a href="../designers.php">Diseñadores</a></li>
+        <li><a href="../shop.php">Tienda</a></li>
+        <li><a href="../appointment.php">Citas</a></li>
+        <li><a href="../legal.php">Políticas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="register-container">
+    <h2>Crear una cuenta</h2>
+    <form action="register_submit.php" method="POST">
+      <label>Nombre de usuario:</label>
+      <input type="text" name="username" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Contraseña:</label>
+      <input type="password" name="password" required>
+
+      <button type="submit" class="btn">Registrarse</button>
     </form>
+  </main>
 
-    <?php
-    if (isset($_POST['register'])) {
-        $name = $conn->real_escape_string($_POST['name']);
-        $email = $conn->real_escape_string($_POST['email']);
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-        $check = $conn->query("SELECT * FROM users WHERE email = '$email'");
-        if ($check->num_rows > 0) {
-            echo "<p>Ya existe una cuenta con este correo.</p>";
-        } else {
-            $conn->query("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')");
-            echo "<p>Registro exitoso. Ahora puedes iniciar sesión.</p>";
-        }
-    }
-    ?>
-</main>
-
-<?php include '../includes/footer.php'; ?>
+  <footer>
+    <p>&copy; <?= date("Y") ?> ALiENS BLooD. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

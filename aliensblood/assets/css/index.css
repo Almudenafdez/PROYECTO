@@ -92,7 +92,7 @@
   .btn-reserva {
     display: inline-block;
     padding: 15px 40px;
-    background-color: #ff00cc;
+    background-color: #8c00ff;
     color: #fff;
     font-size: 1.3rem;
     border: none;
@@ -102,7 +102,7 @@
   }
   
   .btn-reserva:hover {
-    background-color: #e600b7;
+    background-color: #8c00ff;
     transform: scale(1.05);
   }
   
@@ -110,17 +110,17 @@
   @keyframes neonPulse {
     0%, 100% {
       text-shadow:
-        0 0 5px #ff00cc,
-        0 0 10px #ff00cc,
-        0 0 20px #ff00cc,
-        0 0 30px #ff33cc;
+        0 0 5px #00c3ff,
+        0 0 10px #00c3ff,
+        0 0 20px #00c3ff,
+        0 0 30px #91e5ff,
     }
     50% {
       text-shadow:
-        0 0 10px #ff00cc,
-        0 0 20px #ff33cc,
-        0 0 40px #ff33cc,
-        0 0 60px #ff66cc;
+        0 0 10px #1100ff,
+        0 0 20px #382aff,
+        0 0 40px #5b50ff,
+        0 0 60px rgb(130, 121, 255),
     }
   }
   
