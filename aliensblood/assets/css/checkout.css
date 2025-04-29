@@ -1,0 +1,36 @@
+.checkout-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: #1c1c1c;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.checkout-container label {
+    display: block;
+    margin-top: 1rem;
+}
+
+.checkout-container input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0.3rem;
+}
+
+.btn-pagar {
+    margin-top: 1.5rem;
+    background: #6f42c1;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#payment-message {
+    margin-top: 1rem;
+    font-weight: bold;
+}

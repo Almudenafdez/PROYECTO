@@ -45,3 +45,12 @@ function validarFormulario() {
             el.classList.add('visible');
         });
     });
+
+    // carrito contador
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedTitle = document.querySelector('.animated-title');
+    if (animatedTitle) {
+      animatedTitle.classList.add('visible');
+    }
+  });
+  

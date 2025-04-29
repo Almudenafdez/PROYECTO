@@ -1,66 +1,136 @@
 body {
+    font-family: sans-serif;
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    transition: background 0.3s, color 0.3s;
-}
-
-[data-theme="light"] {
-    background-color: #f4f4f4;
-    color: #222;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #0e0e0e;
+    color: #e6e6e6;
 }
 
 header {
-    background-color: #1f1f1f;
-    padding: 1rem;
-    text-align: center;
+    background: linear-gradient(to right, #121212, #1a1a1a);
+    color: #00ffc3;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #00ffc3;
+}
+
+.site-title {
+    font-size: 2rem;
+    margin: 0;
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
     list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
     padding: 0;
 }
 
-nav li a {
-    margin: 0 15px;
+nav a {
+    color: #00ffc3;
     text-decoration: none;
-    color: inherit;
+    transition: 0.2s;
+    font-weight: bold;
 }
 
-nav li a.active {
-    text-decoration: underline;
+nav a:hover,
+nav a.active {
+    color: #ffffff;
+    text-shadow: 0 0 6px #00ffc3;
 }
 
-#toggle-theme {
-    position: absolute;
-    right: 20px;
-    top: 20px;
+button#theme-toggle {
+    background-color: transparent;
+    color: #00ffc3;
+    border: 1px solid #00ffc3;
     padding: 0.5rem 1rem;
-    background: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-[data-theme="light"] #toggle-theme {
-    background: #ddd;
-    color: #111;
+button#theme-toggle:hover {
+    background-color: #00ffc3;
+    color: #000;
 }
 
-.legal-container {
-    max-width: 800px;
-    margin: 2rem auto;
+main {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    line-height: 1.7;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.legal-container h2, .legal-container h3 {
-    margin-top: 1.5rem;
-    color: #ff5a5f;
+.legal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.legal-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #00ffc3;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px #00ffc3;
+}
+
+.legal-section article {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid #00ffc3;
+    padding: 1.5rem;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+}
+
+.legal-section h3 {
+    color: #00ffc3;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(to right, #121212, #1a1a1a);
+    color: #aaaaaa;
+    border-top: 2px solid #00ffc3;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background-color: #fdfdfd;
+    color: #1e1e1e;
+}
+
+body.light-mode header,
+body.light-mode footer {
+    background: #ffffff;
+    color: #000000;
+    border-color: #00ffc3;
+}
+
+body.light-mode nav a {
+    color: #008b87;
+}
+
+body.light-mode nav a:hover,
+body.light-mode nav a.active {
+    color: #000000;
+    text-shadow: none;
+}
+
+body.light-mode .legal-section article {
+    background-color: #ffffff;
+    border-left-color: #00aa99;
+    box-shadow: none;
+}
+
+body.light-mode .legal-section h2,
+body.light-mode .legal-section h3 {
+    color: #00aa99;
 }

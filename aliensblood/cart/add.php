@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['design_id'])) {
         $_SESSION['cart'] = [];
     }
 
-    $_SESSION['cart'][] = $designId;
-
-    header("Location: ../shop.php?added=1");
-    exit;
-} else {
-    echo "Error al añadir al carrito.";
+    if (!in_array($designId, $_SESSION['cart'])) {
+        $_SESSION['cart'][] = $designId;
+    }
 }
+
+header("Location: ../shop.php?added=1");
+exit;

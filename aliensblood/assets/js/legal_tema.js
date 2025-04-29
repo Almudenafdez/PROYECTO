@@ -1,17 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const toggleButton = document.getElementById("toggle-theme");
-    const html = document.documentElement;
+    const toggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
 
-    toggleButton.addEventListener("click", () => {
-        const currentTheme = html.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-        html.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-    });
-
-    // Aplicar tema guardado al cargar
+    // Load saved preference
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
-        html.setAttribute("data-theme", savedTheme);
+        body.classList.remove("dark-mode", "light-mode");
+        body.classList.add(savedTheme);
     }
+
+    toggleBtn.addEventListener("click", () => {
+        if (body.classList.contains("dark-mode")) {
+            body.classList.remove("dark-mode");
+            body.classList.add("light-mode");
+            localStorage.setItem("theme", "light-mode");
+        } else {
+            body.classList.remove("light-mode");
+            body.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark-mode");
+        }
+    });
 });
