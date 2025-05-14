@@ -38,6 +38,7 @@ try {
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="designers.php">Diseñadores</a></li>
                 <li><a href="shop.php">Tienda</a></li>
+                <li><a href="contact.php">Contacto</a></li>
                 <li><a href="appointment.php">Citas</a></li>
                 <li><a href="legal.php">Políticas</a></li>
             </ul>

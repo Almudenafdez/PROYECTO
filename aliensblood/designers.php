@@ -20,8 +20,10 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
         <nav>
             <ul>
                 <li><a href="index.php">Inicio</a></li>
+                <li><a href="gallery.php">Galería Pública</a></li>
                 <li><a href="designers.php" class="active">Diseñadores</a></li>
                 <li><a href="shop.php">Tienda</a></li>
+                <li><a href="contact.php">Contacto</a></li>
                 <li><a href="appointment.php">Citas</a></li>
                 <li><a href="legal.php">Políticas</a></li>
                 <?php if (isset($_SESSION['user_id'])): ?>

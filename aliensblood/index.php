@@ -18,8 +18,10 @@
   <nav>
     <ul>
       <li><a href="index.php">Inicio</a></li>
+      <li><a href="gallery.php">Galería Pública</a></li>
       <li><a href="designers.php">Diseñadores</a></li>
       <li><a href="shop.php">Tienda</a></li>
+      <li><a href="contact.php">Contacto</a></li>
       <li><a href="appointment.php">Citas</a></li>
       <li><a href="legal.php">Políticas</a></li>
       <?php if (isset($_SESSION['user_id'])): ?>
@@ -40,15 +42,64 @@
 
 <main>
 
-  <!-- INTRODUCCIÓN -->
+<!-- Fondo principal estilo banner -->
+<section class="hero-section">
+  <div class="hero-container">
+    <img src="assets/img/background.png" alt="background del index" class="hero-img">
+    <div class="hero-overlay">
+      <h1>Bienvenido a ALiENS BLooD</h1>
+      <a href="contact.php" class="btn btn-hero">Contacta con Nosotros</a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- BOTONES PARA INTERACTUAR -->
   <section class="intro-section">
-    <h2>Bienvenido a ALiENS BLooD</h2>
     <p>Ofrecemos diseños únicos y productos de calidad.</p>
     <p><strong>DECORA TU PIEL O DECORA TU HABITACIÓN</strong></p>
     <a href="designers.php" class="btn">Ver Diseñadores</a>
     <a href="shop.php" class="btn">Ir a la Tienda</a>
-    <a href="appointment.php" class="btn">Agendar Cita</a>
   </section>
+
+  <section class="intro-contacto">
+    <h1>Te recordamos nuestras redes y otras formas de contactos</h1>
+    <a href="contact.php" class="btn">Ir a contactos</a>
+    <h1>REDES SOCIALES</h1>
+    <p><strong>INSTAGRAM:</strong> @tinyalienspiece</p>
+    <p><strong>TIKTOK: </strong>@dark.alien182</p>
+    <p><strong>EMAIL: </strong>gunterheronhatsu@gmail.com</p>
+  </section>
+
+  <section class="features-section">
+  <h2 class="features-title">¿Qué ofrecemos?</h2>
+  <div class="features-container">
+    <div class="feature-item">
+      <h3>Diseños Exclusivos</h3>
+      <p>Contamos con una amplia variedad de diseños originales y únicos creados por nuestros artistas.</p>
+    </div>
+    <div class="vertical-divider"></div>
+    <div class="feature-item">
+      <h3>Calidad Premium</h3>
+      <p>Utilizamos materiales de alta calidad tanto en tatuajes como en decoración para el hogar.</p>
+    </div>
+    <div class="vertical-divider"></div>
+    <div class="feature-item">
+      <h3>Atención Personalizada</h3>
+      <p>Ofrecemos un servicio cercano para ayudarte a encontrar el diseño perfecto o resolver cualquier duda.</p>
+    </div>
+  </div>
+</section>
+
+      <!-- SUSCRPCIONES-->
+<section class="subscribe-section">
+  <h2>Suscríbete y accede a contenido exclusivo</h2>
+  <p>Por solo <strong>4,99€ al mes</strong>, podrás subir tus ideas, acceder a diseños únicos y recibir descuentos exclusivos.</p>
+  <a href="/aliensblood/users/subscribe.php" class="btn" >Suscribirse</a>
+</section>
+
+
+
 
   <!-- ANUNCIOS CON IMAGEN -->
   <section class="benefits">
@@ -74,9 +125,10 @@
 
   <!-- PUNTO RESERVA -->
   <section class="cta-reserva">
-    <h2 class="animated-title">Haz tu reserva ya</h2>
-    <a href="appointment.php" class="btn-reserva">Agendar Cita</a>
-  </section>
+  <h2 class="animated-title">Reserva Tu Cita</h2>
+  <a href="appointment.php" class="btn-reserva"> Agendar Cita</a>
+</section>
+
 
 </main>
 

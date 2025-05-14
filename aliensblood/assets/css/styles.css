@@ -8,7 +8,7 @@
 /* Fondo y tipografía general */
 body {
     background-color: #0b0f0e;
-    color: #d400ff;
+    color: rgb(0, 247, 255);
     font-family: 'Orbitron', sans-serif;
     line-height: 1.6;
 }
@@ -17,9 +17,13 @@ body {
 .site-title {
     font-size: 3rem;
     text-align: center;
-    color: #d400ff;
+    color: rgb(0, 255, 213);
     margin: 40px 0 10px;
-    text-shadow: 0 0 10px #d400ff;
+    text-shadow:
+        0 0 5px rgb(62, 255, 223),
+        0 0 10px rgb(62, 255, 223),
+        0 0 20px rgb(62, 255, 223),
+        0 0 30px rgb(62, 255, 223);
 }
 
 /* Navegación */
@@ -52,6 +56,7 @@ main {
     padding: 40px 20px;
     text-align: center;
 }
+
 
 /* Botones */
 .btn {
@@ -146,6 +151,14 @@ footer {
         transform: translateY(0);
     }
 }
+
+
+
+
+
+
+
+
 /*CARRITO DEL HEADER*/
 .cart-link {
     position: relative;
@@ -163,6 +176,116 @@ footer {
     right: -15px;
   }
   
+/*PARA LA INFORMACIÓN DE LA PÁGINA - QUÉ OFRECEMOS*/
+.features-section {
+    background-color: #121212; /* Contraste oscuro */
+    color: #00ffaa; /* Color llamativo como el resto de tu web */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.features-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #00c3ff;
+    text-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff;
+}
+
+.features-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 100px;
+}
+
+.feature-item {
+    flex: 1 1 250px;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,255,255,0.2);
+}
+
+.feature-item h3 {
+    color: #00ffaa;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.vertical-divider {
+    width: 2px;
+    background-color: #00ffaa66;
+    margin: 0 10px;
+}
+/*RESERVA DE CITA EN INDEX*/
+.cta-reserva {
+    background-color: #0f0f0f;
+    padding: 100px 20px;
+    text-align: center;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animated-title {
+    font-size: 4rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    animation: neonPurple 2s infinite;
+  }
+  
+  /* Efecto Neón*/
+  @keyframes neonPurple {
+    0%, 100% {
+      text-shadow:
+        0 0 5px #9200e6,
+        0 0 10px #9200e6,
+        0 0 20px #9200e6,
+        0 0 30px #be73ff;
+    }
+    50% {
+      text-shadow:
+        0 0 10px #be73ff,
+        0 0 20px #be73ff,
+        0 0 40px #be73ff,
+        0 0 60px #d8adff;
+    }
+  }
+  
+  .btn-reserva {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #9200e6;
+    color: #fff;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px #9200e655, 0 0 20px #9200e655;
+  }
+  
+  .btn-reserva:hover {
+    background-color: #be73ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #be73ff, 0 0 30px #be73ff;
+  }
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -302,60 +425,17 @@ footer {
     object-fit: cover;
     border-radius: 6px;
 }
-.cta-reserva {
-    background-color: #0f0f0f;
-    padding: 100px 20px;
-    text-align: center;
-    margin-top: 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .animated-title {
-    font-size: 4rem;
-    font-family: 'Orbitron', sans-serif;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    animation: neonPulse 2s infinite;
-    margin-bottom: 30px;
-  }
-  
-  .btn-reserva {
-    display: inline-block;
-    padding: 15px 40px;
-    background-color: #9200e6;
-    color: #fff;
-    font-size: 1.3rem;
-    border: none;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .btn-reserva:hover {
-    background-color: #9200e6;
-    transform: scale(1.05);
-  }
-  
-  /* Animación brillante tipo neón */
-  @keyframes neonPulse {
-    0%, 100% {
-      text-shadow:
-        0 0 5px #00c3ff,
-        0 0 10px #00c3ff,
-        0 0 20px #00c3ff,
-        0 0 30px #91e5ff,
-    }
-    50% {
-      text-shadow:
-        0 0 10px #1100ff,
-        0 0 20px #1100ff,
-        0 0 40px #1100ff,
-        0 0 60px #4b3eff,
-    }
-  }
-  
+
+
+
+
+
+
+
+
+
+
+
   /*COOKIES*/
   .cookie-banner {
     position: fixed;

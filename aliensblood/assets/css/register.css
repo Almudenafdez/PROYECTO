@@ -1,40 +1,57 @@
 .register-container {
-    max-width: 500px;
-    margin: 50px auto;
-    background-color: #0f0f10;
-    padding: 30px;
-    border-radius: 12px;
-    border: 2px solid #8a2be2;
-    color: #fff;
-  }
-  
-  .register-container form label {
-    margin-top: 15px;
-    display: block;
-    font-weight: bold;
-  }
-  
-  .register-container form input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    background-color: #1d1d1f;
-    color: #fff;
-    border: 1px solid #333;
-    border-radius: 6px;
-  }
-  
-  .register-container .btn {
-    background-color: #8a2be2;
-    margin-top: 20px;
-    color: #fff;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .register-container .btn:hover {
-    background-color: #a84fff;
-  }
-  
+  max-width: 450px;
+  margin: 100px auto;
+  background-color: #111;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #9200e680;
+  color: #fff;
+}
+
+.register-container h2 {
+  text-align: center;
+  color: #9200e6;
+  text-shadow: 0 0 8px #9200e6;
+  margin-bottom: 25px;
+}
+
+.register-container label {
+  display: block;
+  margin-bottom: 6px;
+  color: #be73ff;
+}
+
+.register-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #222;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  box-shadow: inset 0 0 5px #9200e655;
+}
+
+.register-container .btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #9200e6;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 0 10px #9200e655;
+}
+
+.register-container .btn:hover {
+  background-color: #be73ff;
+  transform: scale(1.05);
+}
+
+#formMessage {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
