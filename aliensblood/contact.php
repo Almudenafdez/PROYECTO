@@ -8,7 +8,23 @@
     <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 <body>
-<?php include 'includes/header.php'; ?>
+ <nav>
+    <ul>
+        <li><a href="index.php">Inicio</a></li>
+        <li><a href="gallery.php">Galería Pública</a></li>
+        <li><a href="designers.php">Diseñadores</a></li>
+        <li><a href="shop.php">Tienda</a></li>
+        <li><a href="appointment.php">Citas</a></li>
+        <li><a href="legal.php">Políticas</a></li>
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <li><a href="users/profile.php">Perfil</a></li>
+            <li><a href="users/logout.php">Cerrar sesión</a></li>
+        <?php else: ?>
+            <li><a href="users/login.php">Iniciar sesión</a></li>
+            <li><a href="users/register.php">Registrarse</a></li>
+        <?php endif; ?>
+    </ul>
+</nav>
 
 <main>
     <section class="contact-wrapper">
