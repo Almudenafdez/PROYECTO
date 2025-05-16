@@ -75,18 +75,18 @@
   <h2 class="features-title">¿Qué ofrecemos?</h2>
   <div class="features-container">
     <div class="feature-item">
-      <h3>Diseños Exclusivos</h3>
-      <p>Contamos con una amplia variedad de diseños originales y únicos creados por nuestros artistas.</p>
+      <h3>INFORMACIÓN</h3>
+      <p>Podemos ofrecer información si existe alguna duda o cualquier consulta ¡SIN MIEDO!</p>
     </div>
     <div class="vertical-divider"></div>
     <div class="feature-item">
-      <h3>Calidad Premium</h3>
-      <p>Utilizamos materiales de alta calidad tanto en tatuajes como en decoración para el hogar.</p>
+      <h3>FIDELIDAD</h3>
+      <p>Atención al cliente y fidelidad a nuestras citas, solo tú puedes cambiarla.</p>
     </div>
     <div class="vertical-divider"></div>
     <div class="feature-item">
-      <h3>Atención Personalizada</h3>
-      <p>Ofrecemos un servicio cercano para ayudarte a encontrar el diseño perfecto o resolver cualquier duda.</p>
+      <h3>DIVERSIÓN</h3>
+      <p>Mira nuestros tipos de diseño y elige a tu tatuador favorito.</p>
     </div>
   </div>
 </section>
