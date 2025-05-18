@@ -1,14 +1,10 @@
 <?php
-session_start();
 require 'includes/db.php';
+session_start();
 
-try {
-    $stmt = $pdo->query("SELECT * FROM ideas ORDER BY created_at DESC");
-    $ideas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    $ideas = [];
-    $error = "Error al cargar la galería: " . $e->getMessage();
-}
+// Obtener ideas con datos de usuario
+$stmt = $pdo->query("SELECT ideas.*, users.username FROM ideas JOIN users ON ideas.user_id = users.id ORDER BY created_at DESC");
+$ideas = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -20,63 +16,46 @@ try {
     <link rel="stylesheet" href="assets/css/gallery.css">
 </head>
 <body>
+
 <?php include 'includes/header.php'; ?>
 
 <main class="gallery-container">
-    <h2>Galería Pública de Diseños</h2>
+    <h2>Galería Pública</h2>
+    <div class="gallery-grid">
+        <?php foreach ($ideas as $idea): ?>
+            <div class="gallery-item">
+                <img src="<?= htmlspecialchars($idea['image_path']) ?>" 
+     alt="<?= htmlspecialchars($idea['idea_text']) ?>" 
+     class="thumbnail" 
+     data-full="<?= htmlspecialchars($idea['image_path']) ?>"
+     data-title="<?= htmlspecialchars($idea['idea_text']) ?>"
+     data-author="<?= htmlspecialchars($idea['username']) ?>">
 
-    <?php if (isset($error)): ?>
-        <p class="error"><?= htmlspecialchars($error) ?></p>
-    <?php elseif (empty($ideas)): ?>
-        <p>No hay ideas publicadas todavía.</p>
-    <?php else: ?>
-        <div class="gallery">
-            <?php foreach ($ideas as $idea): ?>
-                <div class="gallery-item">
-                    <img src="<?= htmlspecialchars($idea['image_path']) ?>"
-                         alt="<?= htmlspecialchars($idea['idea_text']) ?>"
-                         class="thumbnail"
-                         data-full="<?= htmlspecialchars($idea['image_path']) ?>">
-                    <p><strong><?= htmlspecialchars($idea['idea_text']) ?></strong><br>
-                    <?= htmlspecialchars($idea['author_name'] ?? '') ?></p>
+                <div class="info">
+                    <strong><?= htmlspecialchars($idea['idea_text']) ?></strong><br>
+                    <em>por <?= htmlspecialchars($idea['username']) ?></em>
                 </div>
-            <?php endforeach; ?>
-        </div>
-    <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </main>
 
 <!-- Modal -->
 <div id="image-modal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-image">
+    <div class="modal-content-wrapper">
+        <span class="close">&times;</span>
+        <img class="modal-image" id="modal-image" src="" alt="Imagen seleccionada">
+        <div class="modal-caption" id="modal-caption"></div>
+        <div class="modal-nav">
+            <button id="prev-btn">⟨ Anterior</button>
+            <button id="next-btn">Siguiente ⟩</button>
+        </div>
+    </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("image-modal");
-    const modalImg = document.getElementById("modal-image");
-    const closeBtn = document.querySelector(".close");
 
-    document.querySelectorAll(".thumbnail").forEach(img => {
-        img.addEventListener("click", function () {
-            modal.style.display = "block";
-            modalImg.src = this.dataset.full;
-        });
-    });
 
-    closeBtn.onclick = function () {
-        modal.style.display = "none";
-        modalImg.src = "";
-    };
-
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-            modalImg.src = "";
-        }
-    };
-});
-</script>
-
+<?php include 'includes/footer.php'; ?>
+<script src="assets/js/gallery.js" defer></script>
 </body>
 </html>
