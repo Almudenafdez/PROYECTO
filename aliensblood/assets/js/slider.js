@@ -66,3 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetchDesigners();
 });
+
+//CENSURA
+document.querySelectorAll('.censored').forEach(wrapper => {
+    wrapper.addEventListener('click', () => {
+        wrapper.classList.remove('censored');
+    });
+});
