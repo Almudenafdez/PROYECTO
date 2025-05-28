@@ -16,6 +16,10 @@ try {
     if (!$design) {
         die("Diseño no encontrado.");
     }
+    
+    // Determinar si el diseño es NSFW
+    $is_nsfw = isset($design['is_nsfw']) ? $design['is_nsfw'] : 
+              (stripos($design['title'], '18') !== false || stripos($design['title'], 'adulto') !== false);
 } catch (PDOException $e) {
     die("Error: " . $e->getMessage());
 }
@@ -28,7 +32,7 @@ try {
     <title><?= htmlspecialchars($design['title']) ?> - ALiENS BLooD</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/design_detail.css">
-
+    <link rel="stylesheet" href="assets/css/censorship.css">
 </head>
 <body data-design-id="<?= $design['id'] ?>">
     <header>
@@ -48,7 +52,20 @@ try {
     <main>
         <section class="design-detail">
             <h2><?= htmlspecialchars($design['title']) ?></h2>
-            <img src="assets/img/<?= htmlspecialchars($design['image']) ?>" alt="<?= htmlspecialchars($design['title']) ?>">
+            
+            <div class="image-wrapper <?= $is_nsfw ? 'censored' : '' ?>" 
+                 data-nsfw="<?= $is_nsfw ? '1' : '0' ?>" 
+                 data-id="<?= $design['id'] ?>">
+                <img src="assets/img/<?= htmlspecialchars($design['image']) ?>" alt="<?= htmlspecialchars($design['title']) ?>">
+                <?php if ($is_nsfw): ?>
+                    <div class="censor-overlay">+18<br>Haz clic para confirmar tu edad</div>
+                <?php endif; ?>
+            </div>
+            
+            <?php if ($is_nsfw): ?>
+                <span class="adult-warning">+18</span>
+            <?php endif; ?>
+            
             <p><strong>Diseñador:</strong> <?= htmlspecialchars($design['designer_name']) ?></p>
             
             <p class="design-description">
@@ -62,19 +79,19 @@ try {
         </section>
 
         <!-- Interacción con comentarios y me gusta -->
-<section class="interactions">
-    <div class="likes">
-        <button id="likeBtn">💜 Me gusta</button>
-        <span id="likeCount">0</span> Me gusta
-    </div>
+        <section class="interactions">
+            <div class="likes">
+                <button id="likeBtn">💜 Me gusta</button>
+                <span id="likeCount">0</span> Me gusta
+            </div>
 
-    <div class="comments">
-        <h3>Comentarios</h3>
-        <ul id="commentList"></ul>
-        <textarea id="commentInput" placeholder="Escribe tu comentario..."></textarea>
-        <button id="addComment">Añadir comentario</button>
-    </div>
-</section>
+            <div class="comments">
+                <h3>Comentarios</h3>
+                <ul id="commentList"></ul>
+                <textarea id="commentInput" placeholder="Escribe tu comentario..."></textarea>
+                <button id="addComment">Añadir comentario</button>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -82,6 +99,6 @@ try {
     </footer>
 
     <script src="assets/js/design_detail.js"></script>
-
+    <script src="assets/js/censorship.js"></script>
 </body>
 </html>

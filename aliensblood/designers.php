@@ -2,7 +2,7 @@
 session_start();
 require_once 'includes/db.php';
 
-// Consulta de solo 3 diseñadores
+// Solo 3 diseñadores para el slider
 $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
 ?>
 
@@ -12,6 +12,8 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
     <meta charset="UTF-8">
     <title>Diseñadores - ALiENS BLooD</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/designers.css">
+    <link rel="stylesheet" href="assets/css/censorship.css">
 </head>
 <body>
     <header>
@@ -48,12 +50,8 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button id="prev-btn" class="slider-btn">
-                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                </button>
-                <button id="next-btn" class="slider-btn">
-                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-                </button>
+                <button id="prev-btn" class="slider-btn">‹</button>
+                <button id="next-btn" class="slider-btn">›</button>
             </div>
         </section>
 
@@ -65,14 +63,17 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
                                      FROM designs d
                                      JOIN designers des ON d.designer_id = des.id
                                      ORDER BY d.designer_id");
-                while ($row = $stmt->fetch()): ?>
+                while ($row = $stmt->fetch()):
+                    $is_nsfw = $row['is_nsfw'] ?? 0; 
+                    ?>
                     <div class="design-item">
-                        <div class="image-wrapper <?= $row['is_nsfw'] ? 'censored' : '' ?>">
-                            <a href="shop.php?design_id=<?= $row['id'] ?>">
-                                <img src="assets/img/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
-                            </a>
-                            <?php if ($row['is_nsfw']): ?>
-                                <div class="censor-overlay">+18</div>
+                        <div class="image-wrapper <?= $is_nsfw ? 'censored' : '' ?>" 
+                             data-nsfw="<?= $is_nsfw ?>" 
+                             data-href="shop.php?design_id=<?= $row['id'] ?>"
+                             data-id="<?= $row['id'] ?>">
+                            <img src="assets/img/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
+                            <?php if ($is_nsfw): ?>
+                                <div class="censor-overlay">+18<br>Haz clic para confirmar tu edad</div>
                             <?php endif; ?>
                         </div>
                         <h4><?= htmlspecialchars($row['title']) ?></h4>
@@ -91,5 +92,6 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
     </footer>
 
     <script src="assets/js/slider.js"></script>
+    <script src="assets/js/censorship.js"></script>
 </body>
 </html>

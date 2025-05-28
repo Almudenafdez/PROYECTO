@@ -152,13 +152,6 @@ footer {
     }
 }
 
-
-
-
-
-
-
-
 /*CARRITO DEL HEADER*/
 .cart-link {
     position: relative;
@@ -178,8 +171,8 @@ footer {
   
 /*PARA LA INFORMACIÓN DE LA PÁGINA - QUÉ OFRECEMOS*/
 .features-section {
-    background-color: #121212; /* Contraste oscuro */
-    color: #00ffaa; /* Color llamativo como el resto de tu web */
+    background-color: #121212; 
+    color: #00ffaa; 
     padding: 60px 20px;
     text-align: center;
 }
@@ -220,6 +213,9 @@ footer {
     background-color: #00ffaa66;
     margin: 0 10px;
 }
+
+
+
 /*RESERVA DE CITA EN INDEX*/
 .cta-reserva {
     background-color: #0f0f0f;
@@ -279,163 +275,6 @@ footer {
   
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*PÁGINA DE DISEÑADORES*/
-
-
-/* Slide automático, imágenes que se desplazan solas de la base de datos */
-.slider-section {
-    max-width: 800px;
-    margin: 2rem auto;
-    text-align: center;
-}
-
-#slider {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.slide {
-    display: none;
-    padding: 20px;
-    transition: opacity 1s ease-in-out;
-    background-color: #111;
-    color: white;
-}
-
-.slide img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.slide.active {
-    display: block;
-}
-
-/* Botones del slider */
-#slider-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 40px;
-}
-
-#slider {
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.slider-item {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.slider-item.active {
-    display: flex;
-}
-
-.slider-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.slider-btn {
-    background-color: #222;
-    color: #fff;
-    border: none;
-    font-size: 1.8rem;
-    padding: 10px 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.slider-btn:hover {
-    background-color: #ff4081;
-}
-
-/* Estilo del contenedor de cada diseñador */
-.designer-card {
-    width: 300px;
-    text-align: center;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    background-color: rgb(22, 22, 22);
-    margin: 0 auto;
-}
-
-/* Imágenes uniformes */
-.designer-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-}
-
-/*Imágenes extras con el título y el autor*/
-.design-gallery {
-    padding: 2rem;
-    background-color: #111;
-    color: #fff;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.design-item {
-    background-color: #1e1e1e;
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.design-item:hover {
-    transform: scale(1.05);
-}
-
-.design-item img {
-    max-width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-
-
-
-
-
-
-
-
-
-
   /*COOKIES*/
   .cookie-banner {
     position: fixed;
@@ -492,33 +331,3 @@ footer {
       transform: translateX(-50%) translateY(0);
     }
   }
-  
-/*CENSURADO*/
-.image-wrapper {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.censored img {
-    filter: blur(12px);
-    pointer-events: none;
-}
-
-.censor-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.55);
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    pointer-events: none;
-}

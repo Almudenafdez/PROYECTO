@@ -2,14 +2,11 @@
 session_start();
 require_once 'includes/db.php';
 
-// Inicializar el carrito si no existe
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Contar elementos del carrito
 $cartCount = count($_SESSION['cart']);
-
 $designerFilter = isset($_GET['designer_id']) ? (int)$_GET['designer_id'] : 0;
 
 try {
@@ -79,12 +76,24 @@ try {
         </form>
 
         <div class="designs-grid">
-            <?php foreach ($designs as $design): ?>
+            <?php foreach ($designs as $design): 
+                $is_nsfw = isset($design['is_nsfw']) ? $design['is_nsfw'] : 
+                           (stripos($design['title'], '18') !== false || stripos($design['title'], 'adulto') !== false);
+            ?>
                 <div class="design-card">
-                    <img src="assets/img/<?= htmlspecialchars($design['image']) ?>" alt="<?= htmlspecialchars($design['title']) ?>">
+                    <div class="image-wrapper <?= $is_nsfw ? 'censored' : '' ?>" 
+                         data-nsfw="<?= $is_nsfw ? '1' : '0' ?>" 
+                         data-href="design_detail.php?id=<?= $design['id'] ?>" 
+                         data-id="<?= $design['id'] ?>"
+                         onclick="location.href='design_detail.php?id=<?= $design['id'] ?>'">
+                        <img src="assets/img/<?= htmlspecialchars($design['image']) ?>" alt="<?= htmlspecialchars($design['title']) ?>">
+                        <?php if ($is_nsfw): ?>
+                            <div class="censor-overlay">+18<br>Contenido para adultos</div>
+                        <?php endif; ?>
+                    </div>
                     <h3><?= htmlspecialchars($design['title']) ?></h3>
 
-                    <?php if (stripos($design['title'], '18') !== false || stripos($design['title'], 'adulto') !== false): ?>
+                    <?php if ($is_nsfw): ?>
                         <span class="adult-warning">+18</span>
                     <?php endif; ?>
 
@@ -104,5 +113,7 @@ try {
 <footer>
     <p>&copy; <?= date("Y") ?> ALiENS BLooD. Todos los derechos reservados.</p>
 </footer>
+
+<script src="assets/js/censorship.js"></script>
 </body>
 </html>
