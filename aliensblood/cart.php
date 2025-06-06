@@ -24,6 +24,15 @@ if (count($_SESSION['cart']) > 0) {
     $stmt->execute($_SESSION['cart']);
     $cartItems = $stmt->fetchAll();
 }
+
+// Obtener pedidos anteriores del usuario si ha iniciado sesión
+$pedidos = [];
+
+if (isset($_SESSION['user_id'])) {
+    $stmt = $pdo->prepare("SELECT * FROM orders WHERE user_id = ? ORDER BY fecha DESC");
+    $stmt->execute([$_SESSION['user_id']]);
+    $pedidos = $stmt->fetchAll();
+}
 ?>
 
 <!DOCTYPE html>
@@ -77,12 +86,49 @@ if (count($_SESSION['cart']) > 0) {
             </div>
         <?php endif; ?>
     </section>
-    
-    <!-- BOTÓN DE INICIO-->
-<a href="index.php" style="position: fixed; bottom: 20px; right: 20px; background-color: #000; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 999;">
-  Volver al Inicio
-</a>
 
+    <?php if (isset($_SESSION['user_id'])): ?>
+    <section class="order-history">
+    <h2>Pedidos Anteriores</h2>
+
+    <?php if (count($pedidos) > 0): ?>
+        <?php foreach ($pedidos as $pedido): ?>
+            <div class="order-box">
+                <h3>Pedido #<?= htmlspecialchars($pedido['id']) ?> - <?= htmlspecialchars($pedido['fecha']) ?></h3>
+                <p><strong>Total:</strong> <?= number_format($pedido['total'], 2) ?> €</p>
+                <p><strong>Estado:</strong> <?= htmlspecialchars($pedido['estado']) ?></p>
+
+                <div class="order-images">
+                    <?php
+                    $stmtItems = $pdo->prepare("
+                        SELECT d.image, d.title
+                        FROM order_items oi
+                        JOIN designs d ON oi.product_id = d.id
+                        WHERE oi.order_id = ?
+                    ");
+                    $stmtItems->execute([$pedido['id']]);
+                    $productos = $stmtItems->fetchAll();
+
+                    foreach ($productos as $prod):
+                    ?>
+                        <div class="order-image">
+                            <img src="assets/img/<?= htmlspecialchars($prod['image']) ?>" alt="<?= htmlspecialchars($prod['title']) ?>" style="width: 80px; height: auto; margin: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No tienes pedidos anteriores.</p>
+    <?php endif; ?>
+</section>
+
+    <?php endif; ?>
+
+    <!-- BOTÓN DE INICIO-->
+    <a href="index.php" style="position: fixed; bottom: 20px; right: 20px; background-color: #000; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 999;">
+        Volver al Inicio
+    </a>
 </main>
 
 <footer>

@@ -54,6 +54,10 @@ if (!$user) {
         <p class="not-subscribed-msg">No estás suscrito todavía.</p>
         <a href="subscribe.php" class="btn btn-subscribe">Suscribirse</a>
     <?php endif; ?>
+
+    <section>
+        
+    </section>
 </main>
 
 <footer>
