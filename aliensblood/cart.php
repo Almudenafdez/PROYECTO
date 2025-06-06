@@ -2,36 +2,41 @@
 session_start();
 require_once 'includes/db.php';
 
-// Eliminar un diseño del carrito
-if (isset($_GET['remove'])) {
-    $removeId = (int) $_GET['remove'];
-    $_SESSION['cart'] = array_filter($_SESSION['cart'], fn($id) => $id != $removeId);
-    header("Location: cart.php");
-    exit;
-}
-
-// Inicializar el carrito si no existe
+// Inicializar carrito si no existe
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
+}
+
+// Eliminar un diseño del carrito (por design_id)
+if (isset($_GET['remove'])) {
+    $removeId = (int) $_GET['remove'];
+    $_SESSION['cart'] = array_filter($_SESSION['cart'], function($item) use ($removeId) {
+        return $item['design_id'] != $removeId;
+    });
+    // Reindexar array para evitar índices dispersos
+    $_SESSION['cart'] = array_values($_SESSION['cart']);
+    header("Location: cart.php");
+    exit;
 }
 
 $cartItems = [];
 $total = 0;
 
 if (count($_SESSION['cart']) > 0) {
-    $placeholders = implode(',', array_fill(0, count($_SESSION['cart']), '?'));
+    // Obtener solo los design_id para la consulta
+    $designIds = array_map(fn($item) => $item['design_id'], $_SESSION['cart']);
+
+    $placeholders = implode(',', array_fill(0, count($designIds), '?'));
     $stmt = $pdo->prepare("SELECT * FROM designs WHERE id IN ($placeholders)");
-    $stmt->execute($_SESSION['cart']);
+    $stmt->execute($designIds);
     $cartItems = $stmt->fetchAll();
-}
 
-// Obtener pedidos anteriores del usuario si ha iniciado sesión
-$pedidos = [];
-
-if (isset($_SESSION['user_id'])) {
-    $stmt = $pdo->prepare("SELECT * FROM orders WHERE user_id = ? ORDER BY fecha DESC");
-    $stmt->execute([$_SESSION['user_id']]);
-    $pedidos = $stmt->fetchAll();
+    // Asociar la cantidad con cada item para mostrarla
+    // Crear un array asociativo [design_id => quantity]
+    $quantities = [];
+    foreach ($_SESSION['cart'] as $item) {
+        $quantities[$item['design_id']] = $item['quantity'];
+    }
 }
 ?>
 
@@ -67,16 +72,19 @@ if (isset($_SESSION['user_id'])) {
             <p>Tu carrito está vacío.</p>
         <?php else: ?>
             <div class="cart-items">
-                <?php foreach ($cartItems as $item): ?>
+                <?php foreach ($cartItems as $item): 
+                    $qty = $quantities[$item['id']] ?? 1; // Cantidad o 1 por defecto
+                ?>
                     <div class="cart-item">
                         <img src="assets/img/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['title']) ?>">
                         <div class="item-info">
                             <h3><?= htmlspecialchars($item['title']) ?></h3>
+                            <p>Cantidad: <?= $qty ?></p>
                             <p>Precio: 9.99 €</p>
                             <a class="remove-link" href="cart.php?remove=<?= $item['id'] ?>">❌ Quitar</a>
                         </div>
                     </div>
-                    <?php $total += 9.99; ?>
+                    <?php $total += 9.99 * $qty; ?>
                 <?php endforeach; ?>
             </div>
 
@@ -86,6 +94,8 @@ if (isset($_SESSION['user_id'])) {
             </div>
         <?php endif; ?>
     </section>
+
+    <!-- resto del código para pedidos anteriores y footer sin cambios -->
 
     <?php if (isset($_SESSION['user_id'])): ?>
     <section class="order-history">
@@ -122,7 +132,6 @@ if (isset($_SESSION['user_id'])) {
         <p>No tienes pedidos anteriores.</p>
     <?php endif; ?>
 </section>
-
     <?php endif; ?>
 
     <!-- BOTÓN DE INICIO-->

@@ -3,13 +3,29 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['design_id'])) {
     $designId = (int) $_POST['design_id'];
+    $quantity = isset($_POST['quantity']) ? max(1, (int) $_POST['quantity']) : 1;
 
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
 
-    if (!in_array($designId, $_SESSION['cart'])) {
-        $_SESSION['cart'][] = $designId;
+    $found = false;
+
+    // Verifica si el diseño ya está en el carrito
+    foreach ($_SESSION['cart'] as &$item) {
+        if ($item['design_id'] === $designId) {
+            $item['quantity'] += $quantity;
+            $found = true;
+            break;
+        }
+    }
+
+    // Si no está en el carrito, lo agregamos
+    if (!$found) {
+        $_SESSION['cart'][] = [
+            'design_id' => $designId,
+            'quantity' => $quantity
+        ];
     }
 }
 

@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 require_once 'includes/db.php';
 
@@ -6,7 +6,12 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-$cartCount = count($_SESSION['cart']);
+// Contar total de items (sumando cantidades)
+$cartCount = 0;
+foreach ($_SESSION['cart'] as $item) {
+    $cartCount += $item['quantity'];
+}
+
 $designerFilter = isset($_GET['designer_id']) ? (int)$_GET['designer_id'] : 0;
 
 try {
@@ -75,44 +80,55 @@ try {
             </select>
         </form>
 
-        <div class="designs-grid">
-            <?php foreach ($designs as $design): 
-                $is_nsfw = isset($design['is_nsfw']) ? $design['is_nsfw'] : 
-                           (stripos($design['title'], '18') !== false || stripos($design['title'], 'adulto') !== false);
-            ?>
-                <div class="design-card">
-                    <div class="image-wrapper <?= $is_nsfw ? 'censored' : '' ?>" 
-                         data-nsfw="<?= $is_nsfw ? '1' : '0' ?>" 
-                         data-href="design_detail.php?id=<?= $design['id'] ?>" 
-                         data-id="<?= $design['id'] ?>"
-                         onclick="location.href='design_detail.php?id=<?= $design['id'] ?>'">
-                        <img src="assets/img/<?= htmlspecialchars($design['image']) ?>" alt="<?= htmlspecialchars($design['title']) ?>">
-                        <?php if ($is_nsfw): ?>
-                            <div class="censor-overlay">+18<br>Contenido para adultos</div>
-                        <?php endif; ?>
-                    </div>
-                    <h3><?= htmlspecialchars($design['title']) ?></h3>
-
+                <div class="designs-grid">
+        <?php foreach ($designs as $design): 
+            $is_nsfw = isset($design['is_nsfw']) ? $design['is_nsfw'] : 
+                       (stripos($design['title'], '18') !== false || stripos($design['title'], 'adulto') !== false);
+        ?>
+            <div class="design-card">
+                <div class="image-wrapper <?= $is_nsfw ? 'censored' : '' ?>" 
+                     data-nsfw="<?= $is_nsfw ? '1' : '0' ?>" 
+                     data-href="design_detail.php?id=<?= $design['id'] ?>" 
+                     data-id="<?= $design['id'] ?>"
+                     onclick="location.href='design_detail.php?id=<?= $design['id'] ?>'">
+                    <img src="assets/img/<?= htmlspecialchars($design['image']) ?>" alt="<?= htmlspecialchars($design['title']) ?>">
                     <?php if ($is_nsfw): ?>
-                        <span class="adult-warning">+18</span>
+                        <div class="censor-overlay">+18<br>Contenido para adultos</div>
                     <?php endif; ?>
+                </div>
+                <h3><?= htmlspecialchars($design['title']) ?></h3>
 
-                    <div class="design-actions">
+                <?php if ($is_nsfw): ?>
+                    <span class="adult-warning">+18</span>
+                <?php endif; ?>
+
+                <div class="design-actions">
+                    <div class="quantity-counter">
+                        <button type="button" class="qty-btn" data-action="decrement">−</button>
+                        <input type="number" min="1" value="1" class="qty-input" data-design-id="<?= $design['id'] ?>">
+                        <button type="button" class="qty-btn" data-action="increment">+</button>
+                    </div>
+
+                    <div class="action-buttons">
                         <a href="design_detail.php?id=<?= $design['id'] ?>" class="btn btn-details">Ver Detalles</a>
                         <form method="POST" action="cart/add.php" style="display: inline;">
                             <input type="hidden" name="design_id" value="<?= $design['id'] ?>">
+                            <input type="hidden" name="quantity" value="1" class="quantity-hidden-<?= $design['id'] ?>">
                             <button type="submit" class="btn btn-cart">Añadir al Carrito</button>
                         </form>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </div>
+            </div>
+        <?php endforeach; ?>
+        </div> 
+
     </section>
 
+
     <!-- BOTÓN DE INICIO-->
-<a href="index.php" style="position: fixed; bottom: 20px; right: 20px; background-color: #000; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 999;">
-  Volver al Inicio
-</a>
+    <a href="index.php" style="position: fixed; bottom: 20px; right: 20px; background-color: #000; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 999;">
+      Volver al Inicio
+    </a>
 
 </main>
 
@@ -121,5 +137,7 @@ try {
 </footer>
 
 <script src="assets/js/censorship.js"></script>
+<script src="assets/js/shop_counter.js"></script>
+
 </body>
 </html>
