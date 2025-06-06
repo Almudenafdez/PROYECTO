@@ -29,7 +29,13 @@ session_start();
             <?php endif; ?>
         </ul>
     </nav>
-    <button id="theme-toggle">Cambiar tema</button>
+<select id="theme-select">
+    <option value="dark-mode" selected>Oscuro</option>
+    <option value="light-mode">Claro</option>
+    <option value="blue-mode">Oscuro-Light</option>
+    <option value="green-mode">Antiguo</option>
+</select>
+
 </header>
 
 <main>

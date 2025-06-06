@@ -1,23 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("theme-toggle");
+    const themeSelect = document.getElementById("theme-select");
     const body = document.body;
 
-    // Load saved preference
+    // Cargar tema guardado
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
-        body.classList.remove("dark-mode", "light-mode");
+        body.classList.remove("dark-mode", "light-mode", "blue-mode", "green-mode");
         body.classList.add(savedTheme);
+        if (themeSelect) themeSelect.value = savedTheme;
     }
 
-    toggleBtn.addEventListener("click", () => {
-        if (body.classList.contains("dark-mode")) {
-            body.classList.remove("dark-mode");
-            body.classList.add("light-mode");
-            localStorage.setItem("theme", "light-mode");
-        } else {
-            body.classList.remove("light-mode");
-            body.classList.add("dark-mode");
-            localStorage.setItem("theme", "dark-mode");
-        }
-    });
+    // Escuchar cambios en el select
+    if (themeSelect) {
+        themeSelect.addEventListener("change", (e) => {
+            const selectedTheme = e.target.value;
+            body.classList.remove("dark-mode", "light-mode", "blue-mode", "green-mode");
+            body.classList.add(selectedTheme);
+            localStorage.setItem("theme", selectedTheme);
+        });
+    }
 });
