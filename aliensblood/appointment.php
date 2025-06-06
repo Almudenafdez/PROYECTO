@@ -44,11 +44,27 @@ session_start();
       <label>Fecha deseada:</label>
       <input type="date" name="date" required>
 
-      <label>Mensaje adicional:</label>
-      <textarea name="message"></textarea>
+      <label>Hora deseada:</label>
+      <input type="time" name="time" required>
+
+      <label>Selecciona diseñador:</label>
+      <select name="designer_id" required>
+        <option value="">-- Elige un diseñador --</option>
+        <option value="1">ALiEN</option>
+        <option value="2">naranja</option>
+        <option value="3">erderlong</option>
+      </select>
+
+      <label>COMENTA SOBRE EL TATUAJE:</label>
+      <textarea name="message" placeholder="Especifica detalles o preferencias..."></textarea>
 
       <button type="submit" class="btn">Enviar solicitud</button>
     </form>
+
+    <!-- BOTÓN DE INICIO -->
+    <a href="index.php" style="position: fixed; bottom: 20px; right: 20px; background-color: #000; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 999;">
+      Volver al Inicio
+    </a>
   </main>
 
   <footer>

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         autoSlideInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % designers.length;
             showDesigner(currentIndex);
-        }, 1000); // Cambiar cada 3 segundos
+        }, 4000); // Cambiar cada 4 segundos
     }
 
     // Función para detener el slider automático

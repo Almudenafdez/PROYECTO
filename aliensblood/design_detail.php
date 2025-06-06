@@ -92,6 +92,12 @@ try {
                 <button id="addComment">Añadir comentario</button>
             </div>
         </section>
+        
+    <!-- BOTÓN DE INICIO-->
+<a href="index.php" style="position: fixed; bottom: 20px; right: 20px; background-color: #000; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 999;">
+  Volver al Inicio
+</a>
+
     </main>
 
     <footer>
