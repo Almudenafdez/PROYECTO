@@ -18,6 +18,7 @@
   <nav>
     <ul>
       <li><a href="index.php">Inicio</a></li>
+      <li><a href="novedades.php">Novedades</a></li>
       <li><a href="gallery.php">Galería Pública</a></li>
       <li><a href="designers.php">Diseñadores</a></li>
       <li><a href="shop.php">Tienda</a></li>
@@ -89,6 +90,17 @@
       <p>Mira nuestros tipos de diseño y elige a tu tatuador favorito.</p>
     </div>
   </div>
+</section>
+
+<!-- NOVEDADES-->
+<section class="novedad-section">
+  <img src="assets/img/novedades.png" </img>
+  <h2>ESO NO ES TODO. ¡QUÉDATE!</h2>
+  <p>¿Te dan miedo las agujas?</p><br>
+  <p>¿No tienes suficiente dinero? (Nosotros igual)</p><br>
+  <p>¿PERO TE GUSTA NUESTRO ARTE?</p>
+  <h2>ACCEDE A NUESTRAS NOVEDADES DONDE SUBIMOS HISTORIAS</h2>
+  <a href="/aliensblood/novedades.php" class="btn" >NOVEDADES</a>
 </section>
 
       <!-- SUSCRPCIONES-->

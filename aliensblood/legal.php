@@ -15,6 +15,7 @@ session_start();
     <nav>
         <ul>
             <li><a href="index.php">Inicio</a></li>
+            <li><a href="novedades.php">Novedades</a></li>
             <li><a href="gallery.php">Galería Pública</a></li>
             <li><a href="designers.php">Diseñadores</a></li>
             <li><a href="shop.php">Tienda</a></li>

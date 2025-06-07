@@ -34,10 +34,12 @@ if (!$user) {
     <nav>
         <ul>
             <li><a href="../index.php">Inicio</a></li>
+            <li><a href="../novedades.php">Novedades</a></li>
             <li><a href="../gallery.php">Galería Pública</a></li>
             <li><a href="../designers.php">Diseñadores</a></li>
             <li><a href="../shop.php">Tienda</a></li>
             <li><a href="../contact.php">Contacto</a></li>
+            <li><a href="../appointment.php">Citas</a></li>
             <li><a href="logout.php">Cerrar Sesión</a></li>
         </ul>
     </nav>
