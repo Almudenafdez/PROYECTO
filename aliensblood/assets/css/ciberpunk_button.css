@@ -1,0 +1,170 @@
+/* Botón Ciberpunk - Estilos Base */
+.cyberpunk-btn {
+  position: relative;
+  padding: 14px 32px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: transparent;
+  border: 2px solid;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% 100%,
+    12px 100%,
+    0 calc(100% - 12px)
+  );
+}
+
+
+.cyberpunk-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.cyberpunk-btn:hover::before {
+  left: 100%;
+}
+
+/* Contenido del botón */
+.btn-content {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+/* Efecto glitch */
+.btn-glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.cyberpunk-btn:hover .btn-glitch {
+  animation: glitch 0.3s infinite;
+}
+
+/* Variante Cyan */
+.cyberpunk-btn-cyan {
+  color: #00f0ff;
+  border-color: #00f0ff;
+  box-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.5),
+    inset 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+.cyberpunk-btn-cyan:hover {
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.8),
+    0 0 40px rgba(0, 240, 255, 0.4),
+    inset 0 0 20px rgba(0, 240, 255, 0.2);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+}
+
+.cyberpunk-btn-cyan .btn-glitch {
+  color: #00f0ff;
+  text-shadow: 
+    -2px 0 #ff00ff,
+    2px 0 #00ff00;
+}
+
+/* Variante Fucsia */
+.cyberpunk-btn-fucsia {
+  color: #ff00ff;
+  border-color: #ff00ff;
+  box-shadow: 
+    0 0 10px rgba(255, 0, 255, 0.5),
+    inset 0 0 10px rgba(255, 0, 255, 0.1);
+}
+
+.cyberpunk-btn-fucsia:hover {
+  background: rgba(255, 0, 255, 0.1);
+  box-shadow: 
+    0 0 20px rgba(255, 0, 255, 0.8),
+    0 0 40px rgba(255, 0, 255, 0.4),
+    inset 0 0 20px rgba(255, 0, 255, 0.2);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+}
+
+.cyberpunk-btn-fucsia .btn-glitch {
+  color: #ff00ff;
+  text-shadow: 
+    -2px 0 #00f0ff,
+    2px 0 #00ff00;
+}
+
+/* Animación Glitch */
+@keyframes glitch {
+  0% {
+    opacity: 0;
+    transform: translate(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(2px, 2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+}
+
+/* Contenedor opcional para centrar botones */
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cyberpunk-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .container {
+    flex-direction: column;
+  }
+}
