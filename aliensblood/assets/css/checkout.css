@@ -1,36 +1,167 @@
 .checkout-container {
-    max-width: 500px;
-    margin: 2rem auto;
-    background: #1c1c1c;
-    padding: 2rem;
-    border-radius: 10px;
-    color: #fff;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-.checkout-container label {
-    display: block;
-    margin-top: 1rem;
+.checkout-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
 }
 
-.checkout-container input {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: none;
-    margin-top: 0.3rem;
+.order-summary {
+    flex: 1;
+    background: #0a0e27;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
-.btn-pagar {
-    margin-top: 1.5rem;
-    background: #6f42c1;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.2rem;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#payment-message {
-    margin-top: 1rem;
+.order-summary h3 {
+    margin-top: 0;
+    color: #00ffff;
+    border-bottom: 2px solid #ff00ff;
+    padding-bottom: 10px;
+    text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.summary-items {
+    margin: 20px 0;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a3a;
+    color: #e0e0e0;
+}
+
+.summary-total {
+    padding-top: 15px;
+    border-top: 2px solid #ff00ff;
+    font-size: 18px;
+    color: #ff00ff;
+    margin-top: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.payment-form {
+    flex: 1;
+    background: #0a0e27;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+.payment-form h3 {
+    margin-top: 0;
+    color: #ff00ff;
+    border-bottom: 2px solid #00ffff;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00ffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: #1a1a3a;
+    color: #00ffff;
+    transition: all 0.3s;
+}
+
+.form-group input::placeholder {
+    color: #00ffff;
+    opacity: 0.5;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.4);
+    background: #1a1a4a;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.pay-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff00ff;
+    color: #0a0e27;
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.pay-btn:hover {
+    background-color: #00ffff;
+    color: #0a0e27;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    color: #00ffff;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.back-link:hover {
+    color: #ff00ff;
+    text-decoration: underline;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .checkout-content {
+        flex-direction: column;
+        gap: 20px;
+    }
 }

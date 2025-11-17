@@ -1,4 +1,4 @@
-/* General reset */
+/* General css */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@
 body {
     background-color: #0b0f0e;
     color: rgb(0, 247, 255);
-    font-family: 'Orbitron', sans-serif;
+    font-family:'Courier New', Courier, monospace;
     line-height: 1.6;
 }
 
@@ -50,31 +50,89 @@ nav ul li a {
 nav ul li a:hover {
     color: #ff00c8;
 }
-
+ 
 /* Sección principal */
 main {
     padding: 40px 20px;
     text-align: center;
 }
 
-
-/* Botones */
+/* Botones principal con tema ciberpunk magenta-cian */
 .btn {
     display: inline-block;
-    background-color: #00ffaa;
-    color: #0b0f0e;
+    background: linear-gradient(135deg, #ff006e 0%, #ff1493 50%, #00d9ff 100%);
+    color: #000;
     padding: 12px 24px;
     margin: 15px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s ease, color 0.3s ease;
-    box-shadow: 0 0 8px #00ffaa55;
+    border: 2px solid #00d9ff;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 15px #ff006e, 0 0 25px #00d9ff, inset 0 0 10px rgba(255, 0, 110, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
 }
 
 .btn:hover {
-    background-color: #9200e6;
-    color: white;
+    background: linear-gradient(135deg, #00d9ff 0%, #00ffff 50%, #ff006e 100%);
+    box-shadow: 0 0 25px #00d9ff, 0 0 40px #ff006e, inset 0 0 20px rgba(0, 217, 255, 0.4);
+    transform: translateY(-3px);
+    color: #000;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Botón hero con animación ciberpunk */
+.btn-hero {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff006e 0%, #ff1493 50%, #00d9ff 100%);
+    color: #000;
+    padding: 15px 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #00d9ff;
+    box-shadow: 0 0 20px #ff006e, 0 0 30px #00d9ff, inset 0 0 15px rgba(255, 0, 110, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-hero:hover {
+    background: linear-gradient(135deg, #00d9ff 0%, #00ffff 50%, #ff006e 100%);
+    box-shadow: 0 0 30px #00d9ff, 0 0 50px #ff006e, inset 0 0 25px rgba(0, 217, 255, 0.5);
+    transform: translateY(-4px);
+    color: #000;
+}
+
+.btn-hero:hover::before {
+    left: 100%;
 }
 
 /* Footer */
@@ -129,6 +187,7 @@ footer {
 .benefits-list li {
     margin: 0.5rem 0;
 }
+
 .fade-in-up {
     opacity: 0;
     transform: translateY(20px);
@@ -144,7 +203,6 @@ footer {
     transition-delay: 0.4s;
 }
 
-
 @keyframes fadeUp {
     to {
         opacity: 1;
@@ -156,9 +214,9 @@ footer {
 .cart-link {
     position: relative;
     display: inline-block;
-  }
-  
-  .cart-count {
+}
+
+.cart-count {
     background-color: #e91e63;
     color: white;
     font-size: 0.75rem;
@@ -167,8 +225,8 @@ footer {
     position: absolute;
     top: -8px;
     right: -15px;
-  }
-  
+}
+
 /*PARA LA INFORMACIÓN DE LA PÁGINA - QUÉ OFRECEMOS*/
 .features-section {
     background-color: #121212; 
@@ -214,8 +272,6 @@ footer {
     margin: 0 10px;
 }
 
-
-
 /*RESERVA DE CITA EN INDEX*/
 .cta-reserva {
     background-color: #0f0f0f;
@@ -224,9 +280,9 @@ footer {
     margin-top: 60px;
     position: relative;
     overflow: hidden;
-  }
-  
-  .animated-title {
+}
+
+.animated-title {
     font-size: 4rem;
     font-family: 'Orbitron', sans-serif;
     color: #fff;
@@ -234,10 +290,10 @@ footer {
     letter-spacing: 4px;
     margin-bottom: 30px;
     animation: neonPurple 2s infinite;
-  }
-  
-  /* Efecto Neón*/
-  @keyframes neonPurple {
+}
+
+/* Efecto Neón*/
+@keyframes neonPurple {
     0%, 100% {
       text-shadow:
         0 0 5px #9200e6,
@@ -252,31 +308,48 @@ footer {
         0 0 40px #be73ff,
         0 0 60px #d8adff;
     }
-  }
-  
-  .btn-reserva {
+}
+
+.btn-reserva {
     display: inline-block;
     padding: 15px 40px;
-    background-color: #9200e6;
-    color: #fff;
+    background: linear-gradient(135deg, #ff006e 0%, #ff1493 50%, #00d9ff 100%);
+    color: #000;
     font-size: 1.3rem;
-    border: none;
+    border: 2px solid #00d9ff;
     border-radius: 10px;
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 0 10px #9200e655, 0 0 20px #9200e655;
-  }
-  
-  .btn-reserva:hover {
-    background-color: #be73ff;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #be73ff, 0 0 30px #be73ff;
-  }
-  
+    font-weight: bold;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 20px #ff006e, 0 0 30px #00d9ff, inset 0 0 15px rgba(255, 0, 110, 0.4);
+    position: relative;
+    overflow: hidden;
+}
 
+.btn-reserva::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
 
-  /*COOKIES*/
-  .cookie-banner {
+.btn-reserva:hover {
+    background: linear-gradient(135deg, #00d9ff 0%, #00ffff 50%, #ff006e 100%);
+    box-shadow: 0 0 30px #00d9ff, 0 0 50px #ff006e, inset 0 0 25px rgba(0, 217, 255, 0.5);
+    transform: translateY(-4px);
+    color: #000;
+}
+
+.btn-reserva:hover::before {
+    left: 100%;
+}
+
+/*COOKIES*/
+.cookie-banner {
     position: fixed;
     bottom: 30px;
     left: 50%;
@@ -292,20 +365,20 @@ footer {
     z-index: 9999;
     display: none;
     animation: fadeSlideIn 0.5s ease-out forwards;
-  }
-  
-  .cookie-banner p {
+}
+
+.cookie-banner p {
     margin: 0 0 10px;
     line-height: 1.5;
-  }
-  
-  .cookie-actions {
+}
+
+.cookie-actions {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-  }
-  
-  .cookie-banner button {
+}
+
+.cookie-banner button {
     padding: 10px 18px;
     border: none;
     border-radius: 6px;
@@ -315,13 +388,13 @@ footer {
     font-weight: bold;
     font-size: 14px;
     transition: background-color 0.3s ease;
-  }
-  
-  .cookie-banner button:hover {
+}
+
+.cookie-banner button:hover {
     background-color: #9c40ff;
-  }
-  
-  @keyframes fadeSlideIn {
+}
+
+@keyframes fadeSlideIn {
     0% {
       opacity: 0;
       transform: translateX(-50%) translateY(20px);
@@ -330,4 +403,4 @@ footer {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
-  }
+}
