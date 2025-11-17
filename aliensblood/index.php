@@ -1,3 +1,4 @@
+<!-- INDEX.PHP -->
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="assets/css/index.css">
   <link rel="stylesheet" href="assets/css/cart.css">
   <link rel="stylesheet" href="assets/css/ciberpunk_button.css">
+  <link rel="stylesheet" href="assets/css/test.css">
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookies.js" defer></script>
   <script src="assets/js/cart.js" defer></script>
@@ -55,17 +57,16 @@
   </div>
 </section>
 
+<!-- BOTONES PARA INTERACTUAR -->
+<section class="intro-section">
+  <p>Ofrecemos diseños únicos y productos de calidad.</p>
+  <p><strong>DECORA TU PIEL O DECORA TU HABITACIÓN</strong></p>
+  <a href="designers.php" class="btn">Ver Diseñadores</a>
+  <a href="shop.php" class="btn">Ir a la Tienda</a>
+</section>
 
-  <!-- BOTONES PARA INTERACTUAR -->
-  <section class="intro-section">
-    <p>Ofrecemos diseños únicos y productos de calidad.</p>
-    <p><strong>DECORA TU PIEL O DECORA TU HABITACIÓN</strong></p>
-    <a href="designers.php" class="btn">Ver Diseñadores</a>
-    <a href="shop.php" class="btn">Ir a la Tienda</a>
-  </section>
-
-        <!-- OFRECE PÁGINA -->
-  <section class="features-section">
+<!-- OFRECE PÁGINA -->
+<section class="features-section">
   <h2 class="features-title">¿Qué ofrecemos?</h2>
   <div class="features-container">
     <div class="feature-item">
@@ -85,10 +86,11 @@
   </div>
 </section>
 
-<!-- TEST LLAMATIVO Y GRANDE -->     
+<!-- TEST QUIZ -->
 <?php
 $estilo = '';
 $descripcion = '';
+$puntos_array = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
     $puntos = [
@@ -104,7 +106,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
         'minimalista' => 0,
     ];
 
-    // Pregunta 1 - Estética
     switch ($_POST['estetica']) {
         case 'detallado': $puntos['realista'] += 2; break;
         case 'retro': $puntos['old_school'] += 2; break;
@@ -118,7 +119,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
         case 'simple': $puntos['minimalista'] += 2; break;
     }
 
-    // Pregunta 2 - Zona del cuerpo
     switch ($_POST['zona']) {
         case 'espalda': $puntos['japones'] += 1; $puntos['realista'] += 1; break;
         case 'brazo': $puntos['old_school'] += 1; $puntos['blackwork'] += 1; break;
@@ -126,7 +126,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
         case 'pierna': $puntos['tribal'] += 1; $puntos['dotwork'] += 1; break;
     }
 
-    // Pregunta 3 - Mensaje a transmitir
     switch ($_POST['mensaje']) {
         case 'emocion': $puntos['realista'] += 1; $puntos['acuarela'] += 1; break;
         case 'rebeldia': $puntos['blackwork'] += 1; $puntos['tribal'] += 1; break;
@@ -135,17 +134,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
         case 'cultura': $puntos['japones'] += 1; $puntos['tribal'] += 1; break;
     }
 
-    // Pregunta 4 - Tipo visual
     switch ($_POST['visual']) {
         case 'color': $puntos['acuarela'] += 2; $puntos['neotradicional'] += 1; break;
         case 'blanco_negro': $puntos['blackwork'] += 2; $puntos['minimalista'] += 1; break;
         case 'sombra': $puntos['realista'] += 2; $puntos['dotwork'] += 1; break;
         case 'lineas_definidas': $puntos['old_school'] += 2; $puntos['geometrico'] += 1; break;
     }
-
-    // Encontrar el estilo ganador
+ 
     arsort($puntos);
     $estilo_key = array_key_first($puntos);
+    $puntos_array = $puntos;
     
     $nombres_estilos = [
         'realista' => 'Realista',
@@ -155,22 +153,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
         'dotwork' => 'Dotwork',
         'japones' => 'Japonés',
         'tribal' => 'Tribal',
-        'acuarela' => 'Acuarela (Watercolor)',
+        'acuarela' => 'Acuarela',
         'geometrico' => 'Geométrico',
         'minimalista' => 'Minimalista',
     ];
 
     $descripciones_estilos = [
-        'realista' => 'Te gustan los detalles precisos y las representaciones fieles a la realidad.',
-        'old_school' => 'Prefieres lo clásico y atemporal con líneas gruesas y colores sólidos.',
-        'neotradicional' => 'Combinas lo tradicional con toques modernos y colores vibrantes.',
-        'blackwork' => 'Te inclinas por lo dramático con diseños en negro sólido.',
-        'dotwork' => 'Aprecias la paciencia y precisión de los patrones punto por punto.',
-        'japones' => 'Te conectas con la tradición y el simbolismo oriental.',
-        'tribal' => 'Valoras las raíces ancestrales y la fuerza simbólica.',
-        'acuarela' => 'Eres creativo y te gustan los colores que fluyen.',
-        'geometrico' => 'Aprecias la precisión y las formas geométricas.',
-        'minimalista' => 'Crees que menos es más con diseños simples pero impactantes.',
+        'realista' => 'Te gustan los detalles precisos y las representaciones fieles a la realidad. Buscas tatuajes que reflejen exactamente lo que visualizas.',
+        'old_school' => 'Prefieres lo clásico y atemporal con líneas gruesas y colores sólidos. Eres nostálgico y valoras la tradición.',
+        'neotradicional' => 'Combinas lo tradicional con toques modernos y colores vibrantes. Eres innovador pero respetas la raíz.',
+        'blackwork' => 'Te inclinas por lo dramático con diseños en negro sólido. Buscas impacto y misterio en tu piel.',
+        'dotwork' => 'Aprecias la paciencia y precisión de los patrones punto por punto. Te gusta lo hipnotizante y geométrico.',
+        'japones' => 'Te conectas con la tradición y el simbolismo oriental. Valoras la historia y la profundidad en los diseños.',
+        'tribal' => 'Valoras las raíces ancestrales y la fuerza simbólica. Buscas conexión con tus orígenes.',
+        'acuarela' => 'Eres creativo y te gustan los colores que fluyen. Buscas algo artístico y único.',
+        'geometrico' => 'Aprecias la precisión y las formas geométricas. Te atrae el equilibrio y la simetría.',
+        'minimalista' => 'Crees que menos es más con diseños simples pero impactantes. Buscas elegancia en la sencillez.',
     ];
 
     $estilo = $nombres_estilos[$estilo_key];
@@ -178,673 +176,270 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
 }
 ?>
 
-<!-- TEST INLINE-->
-<div style="background: linear-gradient(135deg,rgb(25, 26, 32) 0%,rgb(30, 22, 37) 100%); 
-padding: 40px; margin: 0; 
-width: 100%; min-height: 100vh; 
-font-family: 'Arial', sans-serif; 
-color: white; 
-box-sizing: border-box;">
+<div class="cyber-container">
+  <div class="cyber-header">
+    <h1 class="cyber-title">DESCUBRE TU ESTILO DE TATUAJE</h1>
+    <p class="cyber-subtitle">Responde estas preguntas y encuentra el tatuaje perfecto para ti</p>
+    <div class="cyber-line"></div>
+  </div>
 
-<div style="max-width: 900px; 
-margin: 0 auto; 
-text-align: center;">
+  <?php if (!$estilo): ?>
+    <form method="POST" class="cyber-form">
+      
+      <div class="cyber-question">
+        <div class="cyber-question-number">01</div>
+        <h2 class="cyber-question-title">¿Qué estética te atrae más?</h2>
+        <div class="cyber-options">
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="detallado" required>
+            <span class="cyber-option-text">Realismo detallado</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="retro">
+            <span class="cyber-option-text">Retro o clásico</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="moderno">
+            <span class="cyber-option-text">Color moderno y sombreado</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="oscuro">
+            <span class="cyber-option-text">Oscuro y sólido</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="puntos">
+            <span class="cyber-option-text">A base de puntos</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="tradicional">
+            <span class="cyber-option-text">Tradicional japonés</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="ancestral">
+            <span class="cyber-option-text">Tribal y ancestral</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="acuarela">
+            <span class="cyber-option-text">Acuarela artística</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="lineas">
+            <span class="cyber-option-text">Líneas limpias y precisas</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="estetica" value="simple">
+            <span class="cyber-option-text">Minimalismo puro</span>
+          </label>
+        </div>
+      </div>
 
-<h1 style="color:rgb(16, 194, 185);
-font-size: 42px;
-margin-bottom: 15px;
-font-weight: bold;
-text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-text-transform: uppercase;
-letter-spacing: 2px;">
- DESCUBRE TU ESTILO DE TATUAJE </h1>
+      <div class="cyber-question">
+        <div class="cyber-question-number">02</div>
+        <h2 class="cyber-question-title">¿En qué parte del cuerpo te harías el tatuaje?</h2>
+        <div class="cyber-options">
+          <label class="cyber-option">
+            <input type="radio" name="zona" value="espalda" required>
+            <span class="cyber-option-text">Espalda</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="zona" value="brazo">
+            <span class="cyber-option-text">Brazo</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="zona" value="muñeca">
+            <span class="cyber-option-text">Muñeca o tobillo</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="zona" value="pierna">
+            <span class="cyber-option-text">Pierna</span>
+          </label>
+        </div>
+      </div>
 
+      <div class="cyber-question">
+        <div class="cyber-question-number">03</div>
+        <h2 class="cyber-question-title">¿Qué te gustaría transmitir con tu tatuaje?</h2>
+        <div class="cyber-options">
+          <label class="cyber-option">
+            <input type="radio" name="mensaje" value="emocion" required>
+            <span class="cyber-option-text">Emoción o recuerdo personal</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="mensaje" value="rebeldia">
+            <span class="cyber-option-text">Rebeldía y actitud</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="mensaje" value="espiritualidad">
+            <span class="cyber-option-text">Espiritualidad / conexión interna</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="mensaje" value="estetica">
+            <span class="cyber-option-text">Estética y estilo</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="mensaje" value="cultura">
+            <span class="cyber-option-text">Cultura y simbolismo</span>
+          </label>
+        </div>
+      </div>
 
-<p style="color: #f0f0f0;
-font-size: 20px;
-margin-bottom: 40px;
-font-weight: 300;">
-Responde estas preguntas y encuentra el tatuaje perfecto para ti</p>
-        
+      <div class="cyber-question">
+        <div class="cyber-question-number">04</div>
+        <h2 class="cyber-question-title">¿Qué tipo de visual prefieres?</h2>
+        <div class="cyber-options cyber-options-last">
+          <label class="cyber-option">
+            <input type="radio" name="visual" value="color" required>
+            <span class="cyber-option-text">Colorido y vibrante</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="visual" value="blanco_negro">
+            <span class="cyber-option-text">Blanco y negro</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="visual" value="sombra">
+            <span class="cyber-option-text">Sombras y volumen</span>
+          </label>
+          <label class="cyber-option">
+            <input type="radio" name="visual" value="lineas_definidas">
+            <span class="cyber-option-text">Líneas definidas y fuertes</span>
+          </label>
+        </div>
+      </div>
 
-<form method="POST" style="text-align: left;">
-  <!-- Pregunta 1 -->
-    <div style="background: rgb(53, 53, 53);
-    border-radius: 15px; 
-    padding: 30px; 
-    margin-bottom: 25px; 
-    box-shadow: 0 8px 25px rgba(245, 244, 244, 0.34); 
-    border-left: 6px solid rgb(0, 133, 151);">
+      <button type="submit" class="cyber-button cyber-button-submit">
+        <span class="cyber-button-text">DESCUBRIR MI ESTILO</span>
+        <span class="cyber-button-glow"></span>
+      </button>
+    </form>
 
-    <h3 style="color: white; 
-    font-size: 24px; 
-    font-weight: bold; 
-    margin-bottom: 20px; 
-    display: flex; 
-    align-items: center;">
-    
-    <span style="background: rgb(0, 133, 151);; 
-    color: white;
-    width: 35px; 
-    height: 35px; 
-    border-radius: 50%; 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    margin-right: 15px; 
-    font-size: 18px;">1</span>
-    ¿Qué estética te atrae más?</h3>
-                
-    <div style="display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 15px;">
-                    
-    <label style="display: flex;
-    align-items: center;
-    font-size: 16px; color: #333; 
-    padding: 15px;
-    color: #333;
-    background: rgb(255, 255, 255);; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;"
-    onmouseover="this.style.background='#00b4d8';
-    this.style.borderColor='rgb(51, 110, 177)';"
-    onmouseout="this.style.background='white';
-    this.style.borderColor='transparent';">  
-    <input type="radio" name="estetica" value="detallado" required style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Realismo detallado</strong></label>
-                    
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: #f8f9fa; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';" 
-    onmouseout="this.style.background='white'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="retro" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Retro o clásico</strong></label>
+  <?php else: ?>
+    <div class="cyber-results">
+      <div class="cyber-results-header">
+        <h2 class="cyber-results-title">TU RESULTADO</h2>
+        <div class="cyber-line-results"></div>
+      </div>
 
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: white; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';" 
-    onmouseout="this.style.background='#f8f9fa'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="moderno" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Color moderno y sombreado</strong></label>
+      <div class="cyber-results-box">
+        <p class="cyber-results-label">Tu estilo ideal es:</p>
+        <h3 class="cyber-results-style">
+          <span class="cyber-accent">&gt;&gt;</span>
+          <?= $estilo ?>
+          <span class="cyber-accent">&lt;&lt;</span>
+        </h3>
+        <p class="cyber-results-description"><?= $descripcion ?></p>
+      </div>
 
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: #f8f9fa; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';" 
-    onmouseout="this.style.background='#f8f9fa'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="oscuro" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Oscuro y sólido</strong></label>
-
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: #f8f9fa; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';" 
-    onmouseout="this.style.background='#f8f9fa'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="puntos" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>A base de puntos</strong></label>
-
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: #f8f9fa; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';"
-    onmouseout="this.style.background='#f8f9fa'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="tradicional" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Tradicional japonés</strong></label>
-
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: #f8f9fa; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';" 
-    onmouseout="this.style.background='#f8f9fa'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="ancestral" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Tribal y ancestral</strong></label>
-
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: #f8f9fa; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';" 
-    onmouseout="this.style.background='#f8f9fa'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="acuarela" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Acuarela artística</strong></label>
-
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: #f8f9fa; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';" 
-    onmouseout="this.style.background='#f8f9fa'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="lineas" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Líneas limpias y precisas</strong></label>
-
-    <label style="display: flex; 
-    align-items: center; 
-    font-size: 16px; 
-    color: #333; 
-    padding: 15px; 
-    background: #f8f9fa; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    border: 2px solid transparent;" 
-    onmouseover="this.style.background='#00b4d8'; 
-    this.style.borderColor='rgb(51, 110, 177)';" 
-    onmouseout="this.style.background='#f8f9fa'; 
-    this.style.borderColor='transparent';">
-    <input type="radio" name="estetica" value="simple" style="margin-right: 12px; transform: scale(1.3);"> 
-    <strong>Minimalismo puro</strong></label>
-                </div>
+      <div class="cyber-stats">
+        <p class="cyber-stats-label">Puntuación por estilo:</p>
+        <div class="cyber-stats-grid">
+          <?php foreach ($puntos_array as $style => $points): ?>
+            <div class="cyber-stat-item">
+              <span class="cyber-stat-name"><?= ucfirst(str_replace('_', ' ', $style)) ?></span>
+              <span class="cyber-stat-value"><?= $points ?> pts</span>
             </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
 
-  <!-- Pregunta 2 -->
-  <div style="background: rgb(53, 53, 53);
-    border-radius: 15px; 
-    padding: 30px; 
-    margin-bottom: 25px; 
-    box-shadow: 0 8px 25px rgba(245, 244, 244, 0.34); 
-    border-left: 6px solid rgb(0, 133, 151);">
-
-    <h3 style="color: white; 
-    font-size: 24px; 
-    font-weight: bold; 
-    margin-bottom: 20px; 
-    display: flex; 
-    align-items: center;">
-    
-    <span style="background: rgb(51, 162, 177); 
-    color: white;
-    width: 35px; 
-    height: 35px; 
-    border-radius: 50%; 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    margin-right: 15px; 
-    font-size: 18px;">2</span>
-    ¿En qué parte del cuerpo te harías el tatuaje?</h3>
-                
-    <div style="display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 15px;">
-  
-  <label style="display: flex; 
-  align-items: center; 
-  font-size: 16px; 
-  color: #333; 
-  padding: 15px; 
-  background: #f8f9fa; 
-  border-radius: 10px; 
-  cursor: pointer; 
-  transition: all 0.3s; 
-  border: 2px solid transparent;" 
-  onmouseover="this.style.background='#219ebc'; 
-  this.style.borderColor='rgb(51, 110, 177)';" 
-  onmouseout="this.style.background='#f8f9fa'; 
-  this.style.borderColor='transparent';">
-  <input type="radio" name="zona" value="espalda" required style="margin-right: 12px; transform: scale(1.3);"> 
-  <strong>Espalda</strong></label>
-                    
-  <label style="display: flex; 
-  align-items: center; 
-  font-size: 16px; color: #333; 
-  padding: 15px; 
-  background: #f8f9fa; 
-  border-radius: 10px; 
-  cursor: pointer; 
-  transition: all 0.3s; 
-  border: 2px solid transparent;" 
-  onmouseover="this.style.background='#219ebc'; 
-  this.style.borderColor='rgb(51, 110, 177)';" 
-  onmouseout="this.style.background='#f8f9fa'; 
-  this.style.borderColor='transparent';">
-  <input type="radio" name="zona" value="brazo" style="margin-right: 12px; transform: scale(1.3);"> 
-  <strong>Brazo</strong></label>
-
-  <label style="display: flex; 
-  align-items: center; 
-  font-size: 16px; 
-  color: #333; 
-  padding: 15px; 
-  background: #f8f9fa; 
-  border-radius: 10px; 
-  cursor: pointer; 
-  transition: all 0.3s; 
-  border: 2px solid transparent;" 
-  onmouseover="this.style.background='#219ebc'; 
-  this.style.borderColor='rgb(51, 110, 177)';" 
-  onmouseout="this.style.background='#f8f9fa'; 
-  this.style.borderColor='transparent';">
-  <input type="radio" name="zona" value="muñeca" style="margin-right: 12px; transform: scale(1.3);"> 
-  <strong>Muñeca o tobillo</strong></label>
-
-  <label style="display: flex;
-  align-items: center;
-  font-size: 16px; 
-  color: #333; 
-  padding: 15px; 
-  background: #f8f9fa; 
-  border-radius: 10px; 
-  cursor: pointer; 
-  transition: all 0.3s; 
-  border: 2px solid transparent;" 
-  onmouseover="this.style.background='#219ebc'; 
-  this.style.borderColor='rgb(51, 110, 177)';" 
-  onmouseout="this.style.background='#f8f9fa'; 
-  this.style.borderColor='transparent';">
-  <input type="radio" name="zona" value="pierna" style="margin-right: 12px; transform: scale(1.3);"> 
-  <strong>Pierna</strong></label>
-                </div>
-            </div>
-
-            <!-- Pregunta 3 -->
-            <div style="background: rgb(53, 53, 53);
-            border-radius: 15px; 
-            padding: 30px; margin-bottom: 
-            25px; box-shadow: 0 8px 25px rgba(245, 244, 244, 0.34); 
-            border-left: 6px solid rgb(0, 139, 109);">
-
-            <h3 style="color: white; 
-            font-size: 24px; 
-            font-weight: bold; 
-            margin-bottom: 20px; 
-            display: flex; 
-            align-items: center;">
-
-            <span style="background:rgb(0, 139, 109); 
-            color: white; 
-            width: 35px;
-            height: 35px; 
-            border-radius: 50%; 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin-right: 15px; 
-            font-size: 18px;">3</span>¿Qué te gustaría transmitir con tu tatuaje?</h3>
-                
-            <div style="display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 15px;">
-
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; 
-            color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 196, 159)'; 
-            this.style.borderColor='rgb(18, 97, 80)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-
-            <input type="radio" name="mensaje" value="emocion" required style="margin-right: 12px; transform: scale(1.3);"> 
-            <strong>Emoción o recuerdo personal</strong></label>
-
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; 
-            color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 196, 159)'; 
-            this.style.borderColor='rgb(18, 97, 80)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-            <input type="radio" name="mensaje" value="rebeldia" style="margin-right: 12px; transform: scale(1.3);"> 
-            <strong>Rebeldía y actitud</strong></label>
-
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; 
-            color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 196, 159)'; 
-            this.style.borderColor='rgb(18, 97, 80)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-
-            <input type="radio" name="mensaje" value="espiritualidad" style="margin-right: 12px; transform: scale(1.3);"> 
-            <strong>Espiritualidad / conexión interna</strong></label>
-
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; 
-            color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 196, 159)'; 
-            this.style.borderColor='rgb(18, 97, 80)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-
-            <input type="radio" name="mensaje" value="estetica" style="margin-right: 12px; transform: scale(1.3);"> 
-            <strong>Estética y estilo</strong></label>
-
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 196, 159)'; 
-            this.style.borderColor='rgb(18, 97, 80)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-            <input type="radio" name="mensaje" value="cultura" style="margin-right: 12px; transform: scale(1.3);"> 
-            <strong>Cultura y simbolismo</strong></label>
-                </div>
-            </div>
-
-            <!-- Pregunta 4 -->
-            <div style="background: rgb(53, 53, 53);
-            border-radius: 15px; 
-            padding: 30px; 
-            margin-bottom: 30px; 
-            box-shadow: 0 8px 25px rgba(245, 244, 244, 0.34); 
-            border-left: 6px solid rgb(0, 78, 65);">
-
-            <h3 style="color: white; 
-            font-size: 24px; 
-            font-weight: bold; 
-            margin-bottom: 20px; 
-            display: flex; 
-            align-items: center;">
-
-            <span style="background: rgb(0, 78, 65); 
-            color: white; 
-            width: 35px; 
-            height: 35px; 
-            border-radius: 50%; 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin-right: 15px; 
-            font-size: 18px;">4</span>¿Qué tipo de visual prefieres?</h3>
-                
-            <div style="display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 15px;">
-
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; 
-            color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 128, 111)'; 
-            this.style.borderColor='rgb(14, 63, 55)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-
-            <input type="radio" name="visual" value="color" required style="margin-right: 12px; transform: scale(1.3);">
-            <strong>Colorido y vibrante</strong></label>
-                    
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; 
-            color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 128, 111)'; 
-            this.style.borderColor='rgb(14, 63, 55)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-
-            <input type="radio" name="visual" value="blanco_negro" style="margin-right: 12px; transform: scale(1.3);"> 
-            <strong>Blanco y negro</strong></label>
-
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; 
-            color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 128, 111)'; 
-            this.style.borderColor='rgb(14, 63, 55)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-
-            <input type="radio" name="visual" value="sombra" style="margin-right: 12px; transform: scale(1.3);"> 
-            <strong>Sombras y volumen</strong></label>
-
-            <label style="display: flex; 
-            align-items: center; 
-            font-size: 16px; 
-            color: #333; 
-            padding: 15px; 
-            background: #f8f9fa; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            border: 2px solid transparent;" 
-            onmouseover="this.style.background='rgb(27, 128, 111)'; 
-            this.style.borderColor='rgb(14, 63, 55)';" 
-            onmouseout="this.style.background='#f8f9fa'; 
-            this.style.borderColor='transparent';">
-
-            <input type="radio" name="visual" value="lineas_definidas" style="margin-right: 12px; transform: scale(1.3);"> 
-            <strong>Líneas definidas y fuertes</strong></label>
-                </div>
-            </div>
-
-            <div style="text-align: center;">
-                <button type="submit" style="background: linear-gradient(45deg,rgb(145, 23, 134),rgb(57, 0, 75)); 
-                color: white; 
-                padding: 20px 50px; 
-                border: none; 
-                font-size: 20px; 
-                font-weight: bold; 
-                cursor: pointer; 
-                border-radius: 50px; 
-                box-shadow: 0 8px 25px rgba(255,107,107,0.4); 
-                text-transform: uppercase; 
-                letter-spacing: 1px; 
-                transition: all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; 
-                this.style.boxShadow='0 12px 35px rgba(255,107,107,0.6)';" 
-                onmouseout="this.style.transform='translateY(0)'; 
-                this.style.boxShadow='0 8px 25px rgba(255,107,107,0.4)';">✨ DESCUBRIR MI ESTILO ✨</button>
-            </div>
-        </form>
-
-        <?php if ($estilo): ?>
-            <div style="margin-top: 40px; padding: 40px; background: linear-gradient(135deg,rgb(37, 39, 46) 0%,rgb(38, 32, 44) 100%); border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); text-align: center; border: 3px solid #fff;">
-                <h2 style="color: #ffffff; font-size: 36px; margin-bottom: 20px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🎉 ¡TU RESULTADO! 🎉</h2>
-                <div style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; margin: 20px 0;">
-                    <h3 style="color: #333; font-size: 28px; margin-bottom: 15px; font-weight: bold;">Tu estilo ideal es: <span style="color:rgb(177, 17, 240);"><?= $estilo ?></span></h3>
-                    <p style="font-size: 18px; color: #555; line-height: 1.6;"><?= $descripcion ?></p>
-                </div>
-                <button onclick="location.reload()" style="background: linear-gradient(45deg, #4ecdc4, #44a08d); color: white; padding: 15px 35px; border: none; font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 25px; box-shadow: 0 6px 20px rgba(78,205,196,0.4); text-transform: uppercase; letter-spacing: 1px; margin-top: 20px;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
-                    🔄 REPETIR TEST
-                </button>
-            </div>
-        <?php endif; ?>
-        
+      <button onclick="window.location.href = location.pathname;" class="cyber-button cyber-button-repeat">
+        <span class="cyber-button-text">REPETIR TEST</span>
+        <span class="cyber-button-glow"></span>
+      </button>
     </div>
+  <?php endif; ?>
+
+
+
+    <?php if ($estilo): ?>
+      <div class="quiz-results-container">
+        <h2 class="quiz-results-title">¡TU RESULTADO!</h2>
+        <div class="quiz-results-content">
+          <p class="quiz-results-label">Tu estilo ideal es:</p>
+          <h3 class="quiz-results-style">
+            <span class="quiz-results-style-name"><?= $estilo ?></span>
+          </h3>
+          <p class="quiz-results-description"><?= $descripcion ?></p>
+        </div>
+        <button onclick="window.location.href = location.pathname;" class="quiz-repeat-btn">
+          🔄 REPETIR TEST
+        </button>
+      </div>
+    <?php endif; ?>
+  </div>
 </div>
 
 
-        <!--BOTÓN CIBERPUNK PARA VER INFORMACIÓN -->
-        <br>
-        <br>
-        <div class="container">
-         <br>
-        <a href="appointment.php" class="cyberpunk-btn cyberpunk-btn-cyan">
-            <span class="btn-content">Reserva tu cita</span>
-            <span class="btn-glitch">Reserva tu cita</span>
-        </a>
-
-         <br>
-        <a href="information.php" class="cyberpunk-btn cyberpunk-btn-fucsia">
-            <span class="btn-content">Información tatuajes</span>
-            <span class="btn-glitch">Información tatuajes</span>
-        </a>
-        <br>
-        <br>
 
 
-        
+<!--BOTÓN CIBERPUNK PARA VER INFORMACIÓN -->
+<br>
+<br>
+<div class="container">
+  <br>
+  <a href="appointment.php" class="cyberpunk-btn cyberpunk-btn-cyan">
+    <span class="btn-content">Reserva tu cita</span>
+    <span class="btn-glitch">Reserva tu cita</span>
+  </a>
+
+  <br>
+  <a href="information.php" class="cyberpunk-btn cyberpunk-btn-fucsia">
+    <span class="btn-content">Información tatuajes</span>
+    <span class="btn-glitch">Información tatuajes</span>
+  </a>
+  <br>
+  <br>
+</div>
+
 <!-- NOVEDADES-->
 <section class="novedad-section">
   <br>
-  <img src="assets/img/novedades.png"</img>
+  <img src="assets/img/novedades.png" alt="novedades">
   <h2>ESO NO ES TODO. ¡QUÉDATE!</h2>
   <p>¿Te dan miedo las agujas?</p><br>
   <p>¿No tienes suficiente dinero? (Nosotros igual)</p><br>
   <p>¿PERO TE GUSTA NUESTRO ARTE?</p>
   <h2>ACCEDE A NUESTRAS NOVEDADES DONDE SUBIMOS HISTORIAS</h2>
-  <a href="/aliensblood/novedades.php" alt="novedades" class="btn" >NOVEDADES</a>
+  <a href="/aliensblood/novedades.php" class="btn">NOVEDADES</a>
 </section>
 
-      <!-- SUSCRPCIONES-->
+<!-- SUSCRIPCIONES-->
 <section class="subscribe-section">
   <h2>Suscríbete y accede a contenido exclusivo</h2>
   <p>Por solo <strong>4,99€ al mes</strong>, podrás subir tus ideas, acceder a diseños únicos y recibir descuentos exclusivos.</p>
-  <a href="/aliensblood/users/subscribe.php" class="btn" >Suscribirse</a>
+  <a href="/aliensblood/users/subscribe.php" class="btn">Suscribirse</a>
 </section>
 
-
-
-
-  <!-- ANUNCIOS CON IMAGEN -->
-  <section class="benefits">
-    <div class="benefit" style="background-image: url('assets/img/icon-designs.png');">
-      <div class="overlay">
-        <h4>Diseños Únicos</h4>
-        <p>Arte exclusivo de nuestros diseñadores independientes.</p>
-      </div>
+<!-- ANUNCIOS CON IMAGEN -->
+<section class="benefits">
+  <div class="benefit" style="background-image: url('assets/img/icon-designs.png');">
+    <div class="overlay">
+      <h4>Diseños Únicos</h4>
+      <p>Arte exclusivo de nuestros diseñadores independientes.</p>
     </div>
-    <div class="benefit" style="background-image: url('assets/img/icon-security.png');">
-      <div class="overlay">
-        <h4>Compra Segura</h4>
-        <p>Pagos protegidos y atención personalizada.</p>
-      </div>
+  </div>
+  <div class="benefit" style="background-image: url('assets/img/icon-security.png');">
+    <div class="overlay">
+      <h4>Compra Segura</h4>
+      <p>Pagos protegidos y atención personalizada.</p>
     </div>
-    <div class="benefit" style="background-image: url('assets/img/icon-support.png');">
-      <div class="overlay">
-        <h4>Atención Personalizada</h4>
-        <p>Te ayudamos en cada paso: desde la compra hasta la cita.</p>
-      </div>
+  </div>
+  <div class="benefit" style="background-image: url('assets/img/icon-support.png');">
+    <div class="overlay">
+      <h4>Atención Personalizada</h4>
+      <p>Te ayudamos en cada paso: desde la compra hasta la cita.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-
-      <!-- CONTACTO RECORDATORIO -->
-  <section class="intro-contacto">
-    <h1>Te recordamos nuestras redes y otras formas de contactos</h1>
-    <a href="contact.php" class="btn">Ir a contactos</a>
-    <h1>REDES SOCIALES</h1>
-    <p><strong>INSTAGRAM:</strong> @tinyalienspiece</p>
-    <p><strong>TIKTOK: </strong>@dark.alien182</p>
-    <p><strong>EMAIL: </strong>gunterheronhatsu@gmail.com</p>
-  </section>
-
- 
+<!-- CONTACTO RECORDATORIO -->
+<section class="intro-contacto">
+  <h1>Te recordamos nuestras redes y otras formas de contactos</h1>
+  <a href="contact.php" class="btn">Ir a contactos</a>
+  <h1>REDES SOCIALES</h1>
+  <p><strong>INSTAGRAM:</strong> @tinyalienspiece</p>
+  <p><strong>TIKTOK:</strong> @dark.alien182</p>
+  <p><strong>EMAIL:</strong> gunterheronhatsu@gmail.com</p>
+</section>
 
 </main>
 
