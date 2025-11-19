@@ -390,17 +390,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
   <br>
 </div>
 
-<!-- NOVEDADES-->
-<section class="novedad-section">
-  <br>
-  <img src="assets/img/novedades.png" alt="novedades">
-  <h2>ESO NO ES TODO. ¡QUÉDATE!</h2>
-  <p>¿Te dan miedo las agujas?</p><br>
-  <p>¿No tienes suficiente dinero? (Nosotros igual)</p><br>
-  <p>¿PERO TE GUSTA NUESTRO ARTE?</p>
-  <h2>ACCEDE A NUESTRAS NOVEDADES DONDE SUBIMOS HISTORIAS</h2>
-  <a href="/aliensblood/novedades.php" class="btn">NOVEDADES</a>
+<!-- NOVEDADES -->
+<section class="novedades-section">
+  <div class="novedades-container">
+    <div class="novedades-content">
+      <div class="novedades-image-wrapper">
+        <img src="assets/img/novedades.png" alt="Novedades ALiENS BLooD" class="novedades-image">
+      </div>
+      
+      <div class="novedades-text">
+        <h2 class="novedades-title">ESO NO ES TODO</h2>
+        <p class="novedades-subtitle">¡QUÉDATE!</p>
+        
+        <div class="novedades-questions">
+          <div class="novedades-question">
+            <span class="question-icon">●</span>
+            <p>¿Te dan miedo las agujas?</p>
+          </div>
+          <div class="novedades-question">
+            <span class="question-icon">●</span>
+            <p>¿No tienes suficiente dinero? (Nosotros igual)</p>
+          </div>
+          <div class="novedades-question">
+            <span class="question-icon">●</span>
+            <p>¿PERO TE GUSTA NUESTRO ARTE?</p>
+          </div>
+        </div>
+        
+        <p class="novedades-cta">ACCEDE A NUESTRAS NOVEDADES DONDE SUBIMOS HISTORIAS</p>
+        
+        <a href="/aliensblood/novedades.php" class="novedades-btn">
+          <span class="btn-text">NOVEDADES</span>
+          <span class="btn-glow"></span>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
+
 
 <!-- SUSCRIPCIONES-->
 <section class="subscribe-section">
