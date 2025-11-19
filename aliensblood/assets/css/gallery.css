@@ -1,33 +1,52 @@
+/* CONTENEDOR */
 .gallery-container {
-    padding: 30px;
+    padding: 40px;
     text-align: center;
 }
 
+/* GRID */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
     justify-content: center;
 }
 
-.gallery-item {
-    text-align: center;
-    max-width: 200px;
+/* TARJETA */
+.cyber-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    backdrop-filter: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
 }
 
+/* ❌ ELIMINADO — BLOQUEABA LOS CLICS */
+/*
+.cyber-card::before { ... }
+*/
+
+.cyber-card:hover {
+    transform: translateY(-5px);
+}
+
+/* MINIATURAS */
 .thumbnail {
     width: 100%;
     height: auto;
     border-radius: 6px;
     cursor: pointer;
     transition: transform 0.2s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .thumbnail:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
+/* TEXTO */
 .info {
     margin-top: 8px;
     color: #ccc;
@@ -36,81 +55,72 @@
 
 /* MODAL */
 .modal {
-    display: none;
+    display: flex;
     position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 99999;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .modal-content-wrapper {
-    background-color: #111;
-    color: #eee;
+    background: #111;
     padding: 20px;
     border-radius: 10px;
-    max-width: 600px;
     width: 90%;
+    max-width: 650px;
     text-align: center;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
+/* IMAGEN MODAL */
 .modal-image {
     max-width: 100%;
-    max-height: 60vh;
-    margin-bottom: 10px;
+    max-height: 65vh;
     border-radius: 6px;
-    display: block;
 }
 
+/* TEXTO */
 .modal-caption {
-    font-size: 1rem;
-    white-space: pre-line;
     color: #ccc;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
+/* CERRAR */
 .close {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 32px;
-    font-weight: bold;
     color: #fff;
     cursor: pointer;
-    transition: color 0.3s;
 }
 
-.close:hover {
-    color: #ff4444;
-}
-
+/* CONTROLES */
 .modal-nav {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .modal-nav button {
-    background-color: #333;
-    border: none;
-    color: white;
+    background: #333;
+    border: 1px solid #666;
+    color: #ccc;
     padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s;
 }
 
 .modal-nav button:hover {
-    background-color: #666;
+    background: #555;
 }
