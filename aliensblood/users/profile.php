@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 
 require '../includes/db.php';
 
-// Obtener datos del usuario actual
+// Obtener datos del usuario actual (añadimos avatar próximamente si lo deseas)
 $user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare("SELECT username, email, is_subscribed FROM users WHERE id = ?");
 $stmt->execute([$user_id]);
@@ -17,8 +17,12 @@ if (!$user) {
     echo "Usuario no encontrado.";
     exit;
 }
-?>
 
+// ESTADÍSTICAS: cuántas ideas subió este usuario
+$stmt2 = $pdo->prepare("SELECT COUNT(*) FROM design_ideas WHERE user_id = ?");
+$stmt2->execute([$user_id]);
+$idea_count = $stmt2->fetchColumn();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -45,21 +49,41 @@ if (!$user) {
     </nav>
 </header>
 
+<!-- BANNER HOLOGRÁFICO -->
+<div class="profile-banner">
+    <h2 class="banner-text">Perfil de <?= htmlspecialchars($user['username']) ?></h2>
+</div>
+
 <main class="profile-container">
-    <h2>Bienvenido, <?= htmlspecialchars($user['username']) ?>!</h2>
-    <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
 
-    <?php if ($user['is_subscribed'] == 1): ?>
-        <p class="subscribed-msg">🎉 Eres un suscriptor premium.</p>
-        <a href="upload_idea.php" class="btn">Subir Idea de Diseño</a>
-    <?php else: ?>
-        <p class="not-subscribed-msg">No estás suscrito todavía.</p>
-        <a href="subscribe.php" class="btn btn-subscribe">Suscribirse</a>
-    <?php endif; ?>
+    <!-- AVATAR -->
+    <div class="avatar-wrapper">
+        <img src="../assets/img/default_avatar.png" class="avatar-img" alt="avatar">
+        <p class="avatar-edit">Cambiar Avatar</p>
+    </div>
 
-    <section>
-        
-    </section>
+    <!-- TARJETA DE IDENTIDAD CIBERPUNK -->
+    <div class="cyber-id-card">
+        <h2><?= htmlspecialchars($user['username']) ?></h2>
+        <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
+
+        <?php if ($user['is_subscribed'] == 1): ?>
+            <p class="subscribed-msg">✔ Usuario Premium</p>
+        <?php else: ?>
+            <p class="not-subscribed-msg">No eres premium</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- ZONA DE ARTISTA -->
+    <section class="artist-zone">
+        <h3>Zona de Artista</h3>
+
+        <?php if ($user['is_subscribed'] == 1): ?>
+            <a href="upload_idea.php" class="btn">Subir Idea</a>
+        <?php else: ?>
+            <a href="subscribe.php" class="btn btn-subscribe">Hazte Premium</a>
+        <?php endif; ?>
+
 </main>
 
 <footer>

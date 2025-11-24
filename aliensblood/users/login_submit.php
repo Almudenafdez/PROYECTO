@@ -24,8 +24,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../users/profile.php");
         exit;
     } else {
-        echo "<p style='color: red;'>Usuario o contraseña incorrectos</p>";
-        echo "<a href='login.php'>Volver a intentarlo</a>";
+        // --- AQUÍ AÑADIMOS EL HTML PARA CARGAR EL CSS ---
+        ?>
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <!-- Aquí enlazas el CSS ciberpunk -->
+            <link rel="stylesheet" href="/aliensblood/assets/css/login_submit.css">
+            <title>Error de inicio de sesión</title>
+        </head>
+
+        <body>
+            <div class="login-error">Usuario o contraseña incorrectos</div>
+            <a class="login-back" href="login.php">Volver al inicio de sesión</a>
+        </body>
+        </html>
+        <?php
+        // ------------------------------------------------
     }
 } else {
     header("Location: login.php");

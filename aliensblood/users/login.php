@@ -33,7 +33,6 @@ session_start();
 
       <label>Contraseña:</label>
       <input type="password" name="password" required>
-
       <button type="submit" class="btn">Entrar</button>
     </form>
 
@@ -50,3 +49,4 @@ session_start();
   </footer>
 </body>
 </html>
+
