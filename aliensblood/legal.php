@@ -33,8 +33,8 @@ session_start();
 <select id="theme-select">
     <option value="dark-mode" selected>Oscuro</option>
     <option value="light-mode">Claro</option>
-    <option value="blue-mode">Oscuro-Light</option>
-    <option value="green-mode">Antiguo</option>
+    <option value="blue-mode">Gris</option>
+    <option value="green-mode">Retro</option>
 </select>
 
 </header>

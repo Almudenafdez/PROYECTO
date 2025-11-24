@@ -1,3 +1,4 @@
+<!-- NOVEDADES.PHP -->
 <?php
 session_start();
 require_once 'includes/db.php';
@@ -76,7 +77,7 @@ try {
     <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
         <div class="modal-content">
             <span class="close-btn" aria-label="Cerrar modal">&times;</span>
-            <img src="" alt="" id="modalImage" />
+            <img src="/placeholder.svg" alt="" id="modalImage" />
             <h3 id="modalTitle"></h3>
             <p id="modalAuthor"></p>
             <div class="modal-nav-buttons">
@@ -86,7 +87,8 @@ try {
         </div>
     </div>
 
-    <a href="index.php" style="position: fixed; bottom: 20px; right: 20px; background-color: #000; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 999;">
+    <!-- Updated back button with cyberpunk class -->
+    <a href="index.php" class="back-btn-cyberpunk">
         Volver al Inicio
     </a>
 </main>
