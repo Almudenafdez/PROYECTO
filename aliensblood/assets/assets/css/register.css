@@ -1,0 +1,258 @@
+/* ===========================
+   REGISTER CIBERPUNK — CYAN & MAGENTA
+=========================== */
+
+:root {
+  --cyan: #00f0ff;
+  --magenta: #ff00ff;
+  --bg-dark: #0a0a0a;
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --neon-glow: 0 0 8px var(--cyan), 0 0 15px var(--magenta), 0 0 20px var(--cyan);
+}
+
+/* Container principal */
+.register-container {
+  max-width: 450px;
+  margin: 100px auto;
+  background: var(--bg-dark);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.3), 0 0 25px rgba(255,0,255,0.2);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  animation: pulseContainer 2s infinite alternate;
+}
+
+/* Animación contenedor */
+@keyframes pulseContainer {
+  0% { box-shadow: 0 0 15px rgba(0,255,255,0.3), 0 0 25px rgba(255,0,255,0.2); }
+  100% { box-shadow: 0 0 25px rgba(0,255,255,0.5), 0 0 40px rgba(255,0,255,0.4); }
+}
+
+/* Título */
+.register-container h2 {
+  text-align: center;
+  color: var(--cyan);
+  text-shadow: var(--neon-glow);
+  margin-bottom: 25px;
+  font-family: 'Orbitron', sans-serif;
+  animation: flickerText 3s infinite;
+}
+
+/* Efecto flicker */
+@keyframes flickerText {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: var(--neon-glow);
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% { 
+    text-shadow: none;
+    opacity: 0.8;
+  }
+}
+
+/* Labels */
+.register-container label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--magenta);
+  font-weight: 500;
+  text-shadow: 0 0 4px var(--magenta);
+}
+
+/* Formulario */
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra hijos horizontalmente */
+  position: relative;  /* necesario para span absolute */
+}
+
+/* Inputs */
+.register-container input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  background: var(--input-bg);
+  border: 1px solid var(--cyan);
+  border-radius: 6px;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s all;
+  position: relative;
+  z-index: 1;
+}
+
+.register-container input:focus {
+  border-color: var(--magenta);
+  box-shadow: 0 0 10px var(--cyan), 0 0 15px var(--magenta);
+  background: rgba(255,255,255,0.1);
+}
+
+/* Botón */
+.register-container .btn {
+  width: 100%;
+  max-width: 450px;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: var(--cyan);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--cyan), 0 0 15px var(--magenta);
+  transition: 0.3s all;
+  text-transform: uppercase;
+  align-self: center; /* asegura centrado */
+}
+
+.register-container .btn:hover {
+  background-color: var(--magenta);
+  color: #fff;
+  box-shadow: 0 0 12px var(--magenta), 0 0 25px var(--cyan);
+  transform: scale(1.05);
+}
+
+/* Password wrapper para el toggle */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  padding-right: 40px; /* espacio para el ícono */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--cyan);
+  font-size: 1.1rem;
+  transition: color 0.3s;
+  z-index: 2;
+}
+
+.toggle-password:hover {
+  color: var(--magenta);
+}
+
+/* Links */
+.login-links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-links a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  color: var(--magenta);
+  text-decoration: underline;
+}
+
+/* Mensajes y validación */
+#formMessage {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.password-criteria {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 20px;
+  font-size: 0.9rem;
+}
+
+.password-criteria li {
+  color: #ff6f6f;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.password-criteria li.valid {
+  color: #7aff7a;
+}
+
+.password-criteria li::before {
+  content: '❌';
+  margin-right: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.password-criteria li.valid::before {
+  content: '✅';
+  color: #7aff7a;
+  transform: scale(1.1);
+}
+
+#formMessage.success {
+  color: #7aff7a;
+}
+
+.back-btn {
+  display: inline-block;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #444;
+}
+
+/* Barra de fortaleza */
+#strength-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: inset 0 0 4px var(--cyan, #00f0ff);
+}
+
+#strength-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(to right, #ff4d4d, #ffa94d, #ffff4d, #7dff4d, #00e676);
+  transition: width 0.4s ease;
+  border-radius: 5px;
+}
+
+#strength-text {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: right;
+  color: #aaa;
+  transition: color 0.3s;
+}
+
+#strength-text.weak {
+  color: #ff4d4d;
+}
+
+#strength-text.medium {
+  color: #ffa94d;
+}
+
+#strength-text.strong {
+  color: #7aff7a;
+}

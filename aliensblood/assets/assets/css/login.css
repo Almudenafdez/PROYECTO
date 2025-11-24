@@ -1,0 +1,169 @@
+/* ===========================
+   LOGIN CIBERPUNK — CYAN & MAGENTA
+=========================== */
+
+:root {
+  --cyan: #00f0ff;
+  --magenta: #ff00ff;
+  --bg-dark: #0a0a0a;
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --neon-glow: 0 0 8px var(--cyan), 0 0 15px var(--magenta), 0 0 20px var(--cyan);
+}
+
+/* Container principal */
+.login-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 25px;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), 0 0 25px rgba(255, 0, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: pulseContainer 2s infinite alternate;
+}
+
+/* Animación suave del contenedor */
+@keyframes pulseContainer {
+  0% { box-shadow: 0 0 15px rgba(0,255,255,0.3), 0 0 25px rgba(255,0,255,0.2); }
+  100% { box-shadow: 0 0 25px rgba(0,255,255,0.5), 0 0 40px rgba(255,0,255,0.4); }
+}
+
+/* Título */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--cyan);
+  text-shadow: var(--neon-glow);
+  animation: flickerText 3s infinite;
+}
+
+/* Efecto flicker de neón */
+@keyframes flickerText {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: var(--neon-glow);
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% { 
+    text-shadow: none;
+    opacity: 0.8;
+  }
+}
+
+/* Labels */
+.login-container label {
+  display: block;
+  margin: 12px 0 6px;
+  color: var(--magenta);
+  font-weight: 500;
+  text-shadow: 0 0 4px var(--magenta);
+}
+
+/* Formulario */
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra todos los hijos horizontalmente */
+  position: relative;  /* permite que los spans absolute se posicionen respecto al form */
+}
+
+/* Inputs */
+.login-container input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  background: var(--input-bg);
+  border: 1px solid var(--cyan);
+  border-radius: 6px;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s all;
+  position: relative;
+  z-index: 1;
+}
+
+.login-container input:focus {
+  border-color: var(--magenta);
+  box-shadow: 0 0 10px var(--cyan), 0 0 15px var(--magenta);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Botón */
+.login-container .btn {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: var(--cyan);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--cyan), 0 0 15px var(--magenta);
+  transition: 0.3s all;
+  text-transform: uppercase;
+  align-self: center; /* asegura centrado */
+}
+
+.login-container .btn:hover {
+  background-color: var(--magenta);
+  color: #fff;
+  box-shadow: 0 0 12px var(--magenta), 0 0 25px var(--cyan);
+  transform: scale(1.05);
+}
+
+/* Links */
+.login-links {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.login-links a {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s all;
+}
+
+.login-links a:hover {
+  color: var(--magenta);
+  text-shadow: 0 0 6px var(--magenta);
+  text-decoration: none;
+}
+
+/* Fondo animado opcional */
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, var(--cyan), var(--magenta), var(--cyan));
+  animation: bgRotate 6s linear infinite;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+@keyframes bgRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Toggle-password (ojito) */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: calc(50% + 2px);
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+  display: block;
+}
