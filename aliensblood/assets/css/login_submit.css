@@ -1,0 +1,89 @@
+/* ------------------------------
+   Tema Ciberpunk — Login Error
+--------------------------------*/
+
+@keyframes neonFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(3px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 6px #00fff5, 0 0 12px #ff00e6;
+    }
+    50% {
+        box-shadow: 0 0 15px #00fff5, 0 0 25px #ff00e6;
+    }
+    100% {
+        box-shadow: 0 0 6px #00fff5, 0 0 12px #ff00e6;
+    }
+}
+
+body {
+    background: #05010a;
+    font-family: 'Orbitron', sans-serif;
+    color: #e6e6e6;
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.15), transparent),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.15), transparent);
+    backdrop-filter: blur(4px);
+}
+
+/* Mensaje de error */
+.login-error {
+    padding: 18px 25px;
+    max-width: 380px;
+    text-align: center;
+
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #00fff5, #ff00e6) 1;
+
+    color: #ff8bf6;
+    background: rgba(15, 0, 20, 0.6);
+
+    border-radius: 10px;
+
+    animation: neonFade 0.7s ease, pulseGlow 3s infinite;
+    letter-spacing: 1px;
+}
+
+/* Botón volver */
+.login-back {
+    margin-top: 20px;
+    padding: 12px 18px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #00fff5;
+
+    border: 2px solid #00fff5;
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+    animation: neonFade 1s ease;
+
+    display: inline-block;
+}
+
+/* Hover ciberpunk */
+.login-back:hover {
+    background: #00fff5;
+    color: #05010a;
+    box-shadow: 0 0 12px #00fff5, 0 0 20px #ff00e6;
+    transform: translateY(-2px);
+}

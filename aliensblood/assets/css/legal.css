@@ -1,0 +1,256 @@
+/* =====================
+   VARIABLES GLOBALES
+===================== */
+:root {
+    --color-acento: #00ffc3; /* Modo oscuro por defecto */
+}
+
+body.light-mode {
+    --color-acento: #00aa99;
+}
+
+body.blue-mode {
+    --color-acento: #bbbbbb;
+}
+
+body.green-mode {
+    --color-acento: #a79e7e;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #0e0e0e;
+    color: #e6e6e6;
+}
+
+header {
+    background: linear-gradient(to right, #121212, #1a1a1a);
+    color: var(--color-acento);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-acento);
+}
+
+.site-title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: var(--color-acento);
+    text-decoration: none;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ffffff;
+    text-shadow: 0 0 6px var(--color-acento);
+}
+
+button#theme-toggle {
+    background-color: transparent;
+    color: var(--color-acento);
+    border: 1px solid var(--color-acento);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button#theme-toggle:hover {
+    background-color: var(--color-acento);
+    color: #000;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.legal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.legal-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-acento);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px var(--color-acento);
+}
+
+.legal-section article {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid var(--color-acento);
+    padding: 1.5rem;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+}
+
+.legal-section h3 {
+    color: var(--color-acento);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(to right, #121212, #1a1a1a);
+    color: #aaaaaa;
+    border-top: 2px solid var(--color-acento);
+}
+
+/* =====================
+   MENÚ DESPLEGABLE
+===================== */
+#theme-select {
+    background-color: transparent;
+    color: var(--color-acento);
+    border: 1px solid var(--color-acento);
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+#theme-select:hover {
+    background-color: var(--color-acento);
+    color: #000;
+    border-color: var(--color-acento);
+}
+
+#theme-select option {
+    background-color: #121212;
+    color: var(--color-acento);
+}
+
+/* Modo Claro */
+body.light-mode {
+    background-color: #fdfdfd;
+    color: #1e1e1e;
+}
+
+body.light-mode header,
+body.light-mode footer {
+    background: #ffffff;
+    color: #000000;
+    border-color: var(--color-acento);
+}
+
+body.light-mode nav a {
+    color: var(--color-acento);
+}
+
+body.light-mode nav a:hover,
+body.light-mode nav a.active {
+    color: #000000;
+    text-shadow: none;
+}
+
+body.light-mode .legal-section article {
+    background-color: #ffffff;
+    border-left-color: var(--color-acento);
+    box-shadow: none;
+}
+
+body.light-mode .legal-section h2,
+body.light-mode .legal-section h3 {
+    color: var(--color-acento);
+}
+
+body.light-mode #theme-select option {
+    background-color: #ffffff;
+    color: var(--color-acento);
+}
+
+/* Modo Gris Oscuro (antes "blue-mode") */
+body.blue-mode {
+    background-color: #2c2c2c;
+    color: #dcdcdc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.blue-mode header,
+body.blue-mode footer {
+    background: #3a3a3a;
+    color: #dcdcdc;
+    border-color: #5a5a5a;
+}
+
+body.blue-mode nav a {
+    color: var(--color-acento);
+}
+
+body.blue-mode nav a:hover,
+body.blue-mode nav a.active {
+    color: #ffffff;
+    text-shadow: 0 0 5px #bbb;
+}
+
+body.blue-mode .legal-section article {
+    background-color: rgba(60, 60, 60, 0.9);
+    border-left-color: #777;
+    box-shadow: 0 0 8px rgba(150, 150, 150, 0.3);
+}
+
+body.blue-mode .legal-section h2,
+body.blue-mode .legal-section h3 {
+    color: var(--color-acento);
+}
+
+/* Modo Retro (antes "green-mode") */
+body.green-mode {
+    background-color: #2e2b1f;
+    color: #cfc9b8;
+    font-family: 'Courier New', monospace;
+}
+
+body.green-mode header,
+body.green-mode footer {
+    background: #3a3626;
+    color: #cfc9b8;
+    border-color: var(--color-acento);
+}
+
+body.green-mode nav a {
+    color: var(--color-acento);
+}
+
+body.green-mode nav a:hover,
+body.green-mode nav a.active {
+    color: #e0d9b8;
+    text-shadow: none;
+}
+
+body.green-mode .legal-section article {
+    background-color: rgba(58, 54, 38, 0.85);
+    border-left-color: var(--color-acento);
+    box-shadow: 0 0 10px rgba(167, 158, 126, 0.4);
+}
+
+body.green-mode .legal-section h2,
+body.green-mode .legal-section h3 {
+    color: var(--color-acento);
+}

@@ -1,0 +1,124 @@
+.success-container {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a3a 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-card {
+    background: #0a0e27;
+    padding: 60px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255, 0, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px solid #ff00ff;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #ff00ff;
+    color: #0a0e27;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+    border: 2px solid #00ffff;
+}
+
+.success-card h1 {
+    color: #00ffff;
+    margin: 20px 0;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.success-card p {
+    color: #e0e0e0;
+    font-size: 16px;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.success-message {
+    color: #00ffff;
+    font-style: italic;
+    margin: 20px 0;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.success-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid;
+}
+
+.btn-primary {
+    background-color: #ff00ff;
+    color: #0a0e27;
+    border-color: #00ffff;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.btn-primary:hover {
+    background-color: #00ffff;
+    color: #0a0e27;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #00ffff;
+    border-color: #ff00ff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    background-color: #ff00ff;
+    color: #0a0e27;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+@media (max-width: 600px) {
+    .success-card {
+        padding: 40px 20px;
+        border: 2px solid #ff00ff;
+    }
+    
+    .success-card h1 {
+        font-size: 24px;
+    }
+    
+    .success-actions {
+        flex-direction: column;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+}
