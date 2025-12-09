@@ -1,3 +1,5 @@
+// recogida de los datos para el proceso del pago
+
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("payment-form");
     const message = document.getElementById("payment-message");

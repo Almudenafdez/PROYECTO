@@ -1,3 +1,4 @@
+/*GENERAL*/
 body {
   background-color: #0a0a0a;
   color: #fff;
@@ -6,6 +7,7 @@ body {
   padding: 0;
 }
 
+/*CONTENEDOR*/
 .upload-container {
   max-width: 600px;
   margin: 2rem auto;
@@ -24,6 +26,7 @@ body {
   font-size: 1.8rem;
 }
 
+/*FORMULARIO*/
 form label {
   display: block;
   margin-bottom: 0.5rem;
@@ -47,6 +50,7 @@ form input[type="file"] {
   background-color: rgba(255, 255, 255, 0.08);
   cursor: pointer;
 }
+  /*botones*/
 
 .btn {
   width: 100%;
@@ -60,11 +64,11 @@ form input[type="file"] {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
+/*mouse*/
 .btn:hover {
   background-color: #00ccb8;
 }
-
+/*errores*/
 .error, .success {
   margin-bottom: 1rem;
   padding: 0.75rem;

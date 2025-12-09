@@ -1,3 +1,5 @@
+//Contador para el carrito de compra
+
 document.querySelectorAll('.design-actions').forEach(container => {
   const decrementBtn = container.querySelector('button[data-action="decrement"]');
   const incrementBtn = container.querySelector('button[data-action="increment"]');

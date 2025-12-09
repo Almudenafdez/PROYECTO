@@ -1,3 +1,4 @@
+<!-- HEADER PARA TODO-->
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <header>
   <h1 class="site-title">ALiENS BLooD</h1>

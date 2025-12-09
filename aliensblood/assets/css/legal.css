@@ -1,6 +1,4 @@
-/* =====================
-   VARIABLES GLOBALES
-===================== */
+/* VARIABLES GLOBALES*/
 :root {
     --color-acento: #00ffc3; /* Modo oscuro por defecto */
 }
@@ -9,11 +7,11 @@ body.light-mode {
     --color-acento: #00aa99;
 }
 
-body.blue-mode {
+body.blue-mode { /*GRIS - DALTÓNICO */
     --color-acento: #bbbbbb;
 }
 
-body.green-mode {
+body.green-mode { /*RETRO - ANTIGUO*/
     --color-acento: #a79e7e;
 }
 
@@ -120,9 +118,7 @@ footer {
     border-top: 2px solid var(--color-acento);
 }
 
-/* =====================
-   MENÚ DESPLEGABLE
-===================== */
+/* MENÚ DESPLEGABLE*/
 #theme-select {
     background-color: transparent;
     color: var(--color-acento);

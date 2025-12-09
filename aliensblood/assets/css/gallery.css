@@ -25,10 +25,6 @@
   transition: transform 0.2s ease;
 }
 
-/* ❌ ELIMINADO — BLOQUEABA LOS CLICS */
-/*
-.cyber-card::before { ... }
-*/
 
 .cyber-card:hover {
   transform: translateY(-5px);
@@ -126,7 +122,6 @@
   background: #555;
 }
 
-/* Añadidos estilos para el botón "Volver al Inicio" con tema cyberpunk */
 /* BOTÓN VOLVER AL INICIO */
 .back-btn-cyberpunk {
   position: fixed;

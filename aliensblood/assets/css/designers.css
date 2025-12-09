@@ -1,4 +1,4 @@
-/* DESINGNERS.CSS – CIBERPUNK */
+/* DESINGNERS.CSS */
 
 /* Slider sección */
 .slider-section {
@@ -213,34 +213,6 @@
     margin: 0;
     font-size: 0.9rem;
     color: #bbb;
-}
-
-/* RESPONSIVE */
-@media (max-width: 480px) {
-    #slider-container {
-        flex-direction: column;
-    }
-
-    #slider {
-        width: 90vw;
-    }
-
-    .designer-card {
-        width: 100%;
-        height: auto;
-        padding: 10px;
-    }
-
-    .image-box {
-        height: 250px;
-    }
-
-    .slider-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1.5rem;
-        line-height: 35px;
-    }
 }
 
 

@@ -1,3 +1,6 @@
+//Cuando el usuario intenta enviar el formulario, el código vuelve a pasar revista. Si falta algún requisito, detiene el envío...
+// ...pinta el indicador en rojo y muestra un mensaje claro explicando que falta completar los criterios
+
 const passwordInput = document.getElementById("password");
 const strengthFill = document.getElementById("strength-fill");
 const strengthText = document.getElementById("strength-text");

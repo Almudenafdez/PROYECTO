@@ -1,3 +1,4 @@
+<!--elimina -->
 <?php
 session_start();
 

@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $filename = time() . "_" . preg_replace("/[^a-zA-Z0-9.\-_]/", "", $filename);
         $targetPath = $uploadDir . $filename;
 
-        // Ruta que se guardará en la base de datos (relativa)
+        // Ruta que se guardará en la base de datos
         $dbPath = 'assets/uploads/' . $filename;
 
         // Subir el archivo
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="../assets/css/upload_idea.css">
 </head>
 <body>
-
+<!--header -->
 <header>
   <h1 class="site-title">ALiENS BLooD</h1>
   <nav>
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <p><?= htmlspecialchars($success) ?></p>
     </div>
   <?php endif; ?>
-
+<!--FORMUALRIO -->
   <form action="upload_idea.php" method="POST" enctype="multipart/form-data">
     <label for="idea_text">Nombre de la obra:</label>
     <input type="text" name="idea_text" id="idea_text" required>

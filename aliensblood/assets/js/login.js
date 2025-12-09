@@ -1,3 +1,5 @@
+
+/* revisa si los campos de usuario y contraseña tienen contenido real */
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   const username = document.querySelector('input[name="username"]').value.trim();
   const password = document.querySelector('input[name="password"]').value.trim();
@@ -7,5 +9,3 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     alert('Por favor, completa todos los campos.');
   }
 });
-
-//OJO

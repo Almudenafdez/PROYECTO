@@ -1,8 +1,4 @@
-/* ============================================
-   ESTILOS BASE Y RESET
-   ============================================ */
-
-/* Reset básico para eliminar márgenes y paddings por defecto */
+/*ESTILOS BASE Y RESET*/
 * {
   margin: 0;
   padding: 0;
@@ -17,10 +13,10 @@ body {
   line-height: 1.6;
 }
 
-/* ============================================
-   CONTENEDOR PRINCIPAL
-   ============================================ */
 
+
+
+/*CONTENEDOR PRINCIPAL*/
 /* Contenedor de toda la página con altura mínima de viewport */
 .page-container {
   min-height: 100vh;
@@ -29,10 +25,11 @@ body {
   overflow: hidden;
 }
 
-/* ============================================
-   EFECTOS DE FONDO CIBERPUNK
-   ============================================ */
 
+
+
+
+/*EFECTOS DE FONDO CIBERPUNK*/
 /* Gradiente de fondo con tonos púrpura oscuro */
 .bg-gradient {
   position: absolute;
@@ -73,10 +70,12 @@ body {
   filter: blur(120px);
 }
 
-/* ============================================
-   CONTENEDOR DE CONTENIDO
-   ============================================ */
 
+
+
+
+
+/* CONTENEDOR DE CONTENIDO*/
 /* Wrapper principal del contenido con ancho máximo y centrado */
 .content-wrapper {
   max-width: 1280px;
@@ -86,10 +85,12 @@ body {
   z-index: 10; /* Por encima de los efectos de fondo */
 }
 
-/* ============================================
-   ENCABEZADO PRINCIPAL
-   ============================================ */
 
+
+
+
+
+/*ENCABEZADO PRINCIPAL*/
 /* Contenedor del header */
 .header {
   text-align: center;
@@ -138,10 +139,12 @@ body {
   box-shadow: 0 0 10px #00ffff;
 }
 
-/* ============================================
-   SECCIÓN DE ADVERTENCIAS
-   ============================================ */
 
+
+
+
+
+/* SECCIÓN DE ADVERTENCIAS */
 /* Contenedor de la sección de advertencias con borde neón */
 .warning-section {
   margin-bottom: 4rem;
@@ -192,10 +195,11 @@ body {
   margin-bottom: 1rem;
 }
 
-/* ============================================
-   SECCIÓN DE ESTILOS DE TATUAJES
-   ============================================ */
 
+
+
+
+/*SECCIÓN DE ESTILOS DE TATUAJES*/
 /* Encabezado de la sección de estilos */
 .styles-header {
   margin-bottom: 3rem;
@@ -232,11 +236,12 @@ body {
   gap: 2rem;
 }
 
-/* ============================================
-   TARJETAS INDIVIDUALES DE ESTILOS
-   ============================================ */
 
-/* Aumentado el grosor del borde y la intensidad del brillo neón */
+
+
+
+
+/* TARJETAS INDIVIDUALES DE ESTILOS*/
 /* Tarjeta de estilo con borde neón gradiente más grueso y brillante */
 .style-card {
   background: linear-gradient(135deg, #06b6d4 0%, #ec4899 100%);
@@ -247,7 +252,6 @@ body {
   box-shadow: 0 0 25px rgba(6, 182, 212, 0.6), 0 0 50px rgba(236, 72, 153, 0.4), inset 0 0 20px rgba(6, 182, 212, 0.2);
 }
 
-/* Aumentado el efecto hover para mayor impacto visual */
 /* Efecto hover: escala y aumenta el brillo neón */
 .style-card:hover {
   transform: scale(1.05);
@@ -300,32 +304,10 @@ body {
   font-size: 0.875rem;
 }
 
-/* ============================================
-   DISEÑO RESPONSIVE
-   ============================================ */
 
-/* Tablets y pantallas medianas */
-@media (min-width: 768px) {
-  .main-title {
-    font-size: 4rem;
-  }
 
-  .styles-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-/* Escritorio y pantallas grandes */
-@media (min-width: 1024px) {
-  .styles-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ============================================
-   EFECTOS ADICIONALES CIBERPUNK
-   ============================================ */
-
+/* EFECTOS ADICIONALES CIBERPUNK */
 /* Animación de línea de escaneo */
 @keyframes scan {
   0% {

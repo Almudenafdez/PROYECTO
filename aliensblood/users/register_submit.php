@@ -79,6 +79,7 @@ $conn->close();
   <link rel="stylesheet" href="../assets/css/register.css">
 </head>
 <body>
+  <!--header -->
   <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>
@@ -92,7 +93,7 @@ $conn->close();
       </ul>
     </nav>
   </header>
-
+<!--registrar usuario -->
   <main class="register-container">
     <?php if (!empty($errors)): ?>
       <h2>Error en el registro</h2>

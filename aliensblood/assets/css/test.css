@@ -118,6 +118,8 @@ body::before {
   gap: 40px;
 }
 
+  /*preguntas*/
+
 .cyber-question {
   background: rgba(15, 5, 32, 0.6);
   border: 2px solid #00ffff;
@@ -165,6 +167,7 @@ body::before {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+  /*opciones*/
 
 .cyber-options {
   display: grid;
@@ -217,6 +220,7 @@ body::before {
   letter-spacing: 0.5px;
   flex: 1;
 }
+  /*botones*/
 
 .cyber-button {
   padding: 18px 50px;
@@ -286,6 +290,7 @@ body::before {
 .cyber-button:hover .cyber-button-glow {
   left: 100%;
 }
+  /*resultados*/
 
 .cyber-results {
   animation: fadeIn 0.8s ease-out;
@@ -422,32 +427,4 @@ body::before {
   font-size: 0.9rem;
   text-shadow: 0 0 5px #00ffff;
   letter-spacing: 1px;
-}
-
-@media (max-width: 768px) {
-  .cyber-title {
-    font-size: 2rem;
-  }
-
-  .cyber-question {
-    padding: 20px;
-  }
-
-  .cyber-options {
-    grid-template-columns: 1fr;
-  }
-
-  .cyber-button-submit,
-  .cyber-button-repeat {
-    min-width: 100%;
-  }
-
-  .cyber-results-style {
-    font-size: 1.8rem;
-    flex-direction: column;
-  }
-
-  .cyber-accent {
-    font-size: 1.5rem;
-  }
 }

@@ -1,3 +1,6 @@
+/*SECCIÓN DE LA IMAGEN*/
+
+/*ANIMACIÓN DE DESVANECER*/
 @keyframes fadeSlideUp {
   0% {
     opacity: 0;
@@ -9,6 +12,7 @@
   }
 }
 
+/*AJUSTE DE LA IMAGEN*/
 .benefits {
   display: flex;
   justify-content: center;
@@ -69,6 +73,8 @@
   margin-top: 0;
 }
 
+
+/*ANIMACIÓN DE IMAGEN FLOTANTE*/
 @keyframes float {
   0%,
   100% {
@@ -78,7 +84,7 @@
     transform: translateY(-15px);
   }
 }
-
+/*ANIMACIÓN DE NEÓN*/
 @keyframes glowPulse {
   0%,
   100% {
@@ -88,7 +94,7 @@
     filter: drop-shadow(0 0 25px rgba(255, 0, 110, 0.6)) brightness(1.05);
   }
 }
-
+/*ANIMACIÓN DE LA IMAGEN*/
 @keyframes heroFadeIn {
   0% {
     opacity: 0;
@@ -215,7 +221,7 @@
   text-shadow: 0 0 15px #00ffff, 0 0 30px #00d9ff;
 }
 
-/* Nueva sección de suscripción con diseño cyberpunk profesional */
+/* Nueva sección de suscripción */
 /* SUSCRIPCIONES */
 @keyframes neonPulseSubscribe {
   0%,
@@ -344,7 +350,11 @@
 .subscribe-section .btn-subscribe:hover::before {
   left: 100%;
 }
-/* Fin de estilos de suscripción */
+
+
+
+
+
 
 /* BOTONES CIBERPUNK */
 .cyberpunk-btn {
@@ -406,7 +416,7 @@
   left: 100%;
 }
 
-/* ========== NOVEDADES SECTION - NUEVAS ANIMACIONES ========== */
+/* ANIMACIONES DE LA SECCIÓN DE NOVEDADES*/
 
 @keyframes slideInLeft {
   0% {
@@ -633,47 +643,9 @@
   opacity: 1;
 }
 
-/* Responsive design para NOVEDADES */
-@media (max-width: 768px) {
-  .novedades-section {
-    margin: 40px auto;
-    padding: 30px 20px;
-  }
 
-  .novedades-container {
-    padding: 30px;
-  }
 
-  .novedades-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
 
-  .novedades-title {
-    font-size: 2.5rem;
-  }
-
-  .novedades-subtitle {
-    font-size: 1.8rem;
-  }
-
-  .novedades-cta {
-    font-size: 1.1rem;
-  }
-
-  .subscribe-section {
-    padding: 50px 20px;
-    margin: 50px 20px;
-  }
-
-  .subscribe-section h2 {
-    font-size: 2rem;
-  }
-
-  .subscribe-section p {
-    font-size: 1.1rem;
-  }
-}
 
 /* SECCIÓN ¿QUÉ OFRECEMOS? */
 .features-section {
@@ -714,6 +686,10 @@
   position: relative;
   overflow: hidden;
 }
+
+
+
+
 
 /* EFECTO DE BARRIDO GLITCH */
 .feature-item::before {

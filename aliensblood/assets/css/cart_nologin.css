@@ -1,0 +1,127 @@
+  /* TODA LA PÁGINA DE ERROR PORQUE NO HAS INICIADO SESIÓN Y QUIERES COMPRAR*/
+        body {
+            margin: 0;
+            background: #000;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* ALERTA */
+        .cyber-alert-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(3px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        .cyber-alert-box {
+            position: relative;
+            width: 380px;
+            background: #0a0a0f;
+            padding: 25px 30px;
+            border: 2px solid #00fff2;
+            box-shadow: 0 0 15px #00fff2, 0 0 25px #ff00aa inset;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            animation: neonPulse 2s infinite alternate;
+        }
+
+        /*ANIMACIÓN PULSO CON NEÓN*/
+        @keyframes neonPulse {
+            0% {
+                box-shadow: 0 0 12px #00fff2, 0 0 20px #ff00aa inset;
+            }
+            100% {
+                box-shadow: 0 0 22px #00fff2, 0 0 40px #ff00aa inset;
+            }
+        }
+
+        /* EL MENSAJE DE LA PÁGINA */
+        .cyber-title {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            color: #00fff2;
+            text-shadow: 0 0 5px #00fff2, 0 0 10px #ff00aa;
+        }
+
+        .cyber-msg {
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .cyber-btn {
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid #ff00d4;
+            padding: 10px 22px;
+            color: #ff00d4;
+            font-family: inherit;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            transition: 0.25s;
+        }
+
+        /*Al pasar el ratón*/
+        .cyber-btn:hover {
+            background: #ff00d4;
+            color: black;
+            box-shadow: 0 0 12px #ff00d4;
+        }
+         /* EFECTO GLITCH ANIMACIÓN*/
+        .glitch-layer {
+            position: absolute;
+            inset: 0;
+            border-radius: 10px;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .glitch1 {
+            background: rgba(0,255,255,0.15);
+            animation: glitch1 1.4s infinite;
+        }
+        .glitch2 {
+            background: rgba(255,0,150,0.18);
+            animation: glitch2 1.2s infinite;
+        }
+        .glitch3 {
+            background: rgba(0,255,255,0.1);
+            animation: glitch3 1.8s infinite;
+        }
+
+        @keyframes glitch1 {
+            0% { transform: translate(0,0); opacity: .5; }
+            20% { transform: translate(-5px,2px); opacity: .3; }
+            40% { transform: translate(3px,-2px); opacity: .4; }
+            60% { transform: translate(-3px,2px); opacity: .2; }
+            80% { transform: translate(2px,-5px); opacity: .3; }
+            100% { transform: translate(0,0); opacity: .5; }
+        }
+
+        @keyframes glitch2 {
+            0% { transform: translate(0,0); opacity: .5; }
+            25% { transform: translate(4px,-3px); opacity: .2; }
+            50% { transform: translate(-4px,1px); opacity: .4; }
+            75% { transform: translate(1px,-4px); opacity: .3; }
+            100% { transform: translate(0,0); opacity: .5; }
+        }
+
+        @keyframes glitch3 {
+            0% { transform: translate(0,0); opacity: .4; }
+            20% { transform: translate(3px,4px); opacity: .3; }
+            40% { transform: translate(-3px,-2px); opacity: .5; }
+            60% { transform: translate(2px,3px); opacity: .2; }
+            80% { transform: translate(-4px,-1px); opacity: .4; }
+            100% { transform: translate(0,0); opacity: .4; }
+        }

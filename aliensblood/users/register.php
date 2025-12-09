@@ -14,6 +14,7 @@ session_start();
   <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>
+      <!--header -->
       <ul>
         <li><a href="../index.php">Inicio</a></li>
         <li><a href="../designers.php">Diseñadores</a></li>

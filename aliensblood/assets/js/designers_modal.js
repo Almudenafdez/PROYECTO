@@ -82,6 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.focus();
   }
 
+
+  // cierra el mensaje de +18 y continúa con la imagen sin filtro
   function closeModal() {
     modal.style.display = 'none';
     currentIndex = -1;

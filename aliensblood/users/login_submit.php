@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../includes/db.php'; // Asegúrate de que la ruta es correcta
+require '../includes/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <!-- Aquí enlazas el CSS ciberpunk -->
+            <!--css y título -->
             <link rel="stylesheet" href="/aliensblood/assets/css/login_submit.css">
             <title>Error de inicio de sesión</title>
         </head>
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </body>
         </html>
         <?php
-        // ------------------------------------------------
+
     }
 } else {
     header("Location: login.php");

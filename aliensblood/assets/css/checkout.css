@@ -1,3 +1,4 @@
+/*RESUMEN DEL PEDIDO Y FORMULARIO DE PAGO*/
 .checkout-container {
     max-width: 900px;
     margin: 40px auto;
@@ -96,6 +97,7 @@
     transition: all 0.3s;
 }
 
+/* POR ENCIMA DEL MOUSE*/
 .form-group input::placeholder {
     color: #00ffff;
     opacity: 0.5;

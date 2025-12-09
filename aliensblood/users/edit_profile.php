@@ -28,6 +28,7 @@ $stmt->close();
 $conn->close();
 ?>
 
+<!--header -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -64,16 +65,7 @@ $conn->close();
   <footer>
     <p>&copy; <?= date("Y") ?> ALiENS BLooD. Todos los derechos reservados.</p>
   </footer>
-
-<script>
-  document.getElementById('editForm').addEventListener('submit', function(e) {
-    const password = document.querySelector('input[name="new_password"]').value;
-    if (password && password.length < 6) {
-      e.preventDefault();
-      alert('La nueva contraseña debe tener al menos 6 caracteres.');
-    }
-  });
-</script>
+<script src="../assets/js/profile.js"></script>
 
 </body>
 </html>

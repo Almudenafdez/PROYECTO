@@ -1,3 +1,4 @@
+<!-- BBDD -->
 <?php
 $host = 'localhost';
 $db   = 'aliensblood';

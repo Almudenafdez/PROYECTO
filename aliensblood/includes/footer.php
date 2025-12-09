@@ -1,3 +1,4 @@
+<!-- FOOTER PARA TODO-->
 <footer>
     <p>&copy; <?php echo date("Y"); ?> Tatuajes & Diseños. Todos los derechos reservados.</p>
 </footer>

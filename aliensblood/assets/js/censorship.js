@@ -1,4 +1,5 @@
-// censorship.js
+// DISTORSIÓN DE IMAGEN. SI EN BBDD LA COLUMNA ES 1 == +18. SI ES 0 == PÚBLICO
+// censura
 
 document.addEventListener("DOMContentLoaded", function () {
   const nsfwWrappers = document.querySelectorAll(".image-wrapper[data-nsfw='1']");

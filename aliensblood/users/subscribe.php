@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user['is_subscribed'] == 0) {
     <link rel="stylesheet" href="../assets/css/subscribe.css">
 </head>
 <body>
-
+<!--header -->
 <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>

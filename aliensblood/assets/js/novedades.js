@@ -1,4 +1,6 @@
-//NOVEDADES.JS
+//detecta cuándo haces clic en una miniatura, abre una ventana flotante con la imagen grande...
+//...su título y su autor, y te permite navegar entre diseños como si fuera un carrusel
+
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("imageModal")
   const modalImage = document.getElementById("modalImage")

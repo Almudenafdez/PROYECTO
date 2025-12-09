@@ -1,6 +1,4 @@
-/* ------------------------------
-   Tema Ciberpunk — Login Error
---------------------------------*/
+/* LOGIN_SUMNIT.CSS ANIMACIÓN*/
 
 @keyframes neonFade {
     0% {
@@ -26,6 +24,8 @@
         box-shadow: 0 0 6px #00fff5, 0 0 12px #ff00e6;
     }
 }
+
+/* NO ANIMACIÓN */
 
 body {
     background: #05010a;

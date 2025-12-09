@@ -108,14 +108,13 @@ header nav ul li a:hover {
     margin-bottom: 5px;
 }
 
+
+
+
+
+
 /* -------- FIX ABSOLUTO ---------- */
-
-
 /* Botones */
-/* ================================
-   FIX DEFINITIVO MG + ELIMINAR
-   ================================ */
-
 #commentList li {
     overflow: visible !important;
     position: relative !important;

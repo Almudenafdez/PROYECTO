@@ -1,6 +1,4 @@
-/* ===========================
-   REGISTER CIBERPUNK — CYAN & MAGENTA
-=========================== */
+/* POR DEFECTO*/
 
 :root {
   --cyan: #00f0ff;
@@ -65,7 +63,7 @@
 .register-container form {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centra hijos horizontalmente */
+  align-items: center; /* centra horizontalmente */
   position: relative;  /* necesario para span absolute */
 }
 

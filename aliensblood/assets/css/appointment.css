@@ -1,7 +1,6 @@
-/* ----------------------------------
-   FORMULARIO CIBERPUNK CIAN–MAGENTA
------------------------------------*/
+/*appointment.css*/
 
+/*ANIMACIÓN DE LA CAJITA PARA PULSACIONES CON NEÓN*/
 @keyframes neonBoxPulse {
     0% {
         box-shadow: 0 0 12px rgba(0,255,255,0.15), inset 0 0 12px rgba(255,0,255,0.08);
@@ -29,6 +28,7 @@
     100% { box-shadow: 0 0 6px #7f00ff; }
 }
 
+/* CUADRITO DE LA CAJITA DE CITAS*/
 .appointment-container {
     max-width: 600px;
     margin: 40px auto;

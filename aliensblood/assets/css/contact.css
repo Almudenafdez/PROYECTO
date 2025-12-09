@@ -1,7 +1,4 @@
-/* ------------------------------
-   CIBERPUNK CONTACT — CYAN & MAGENTA
-   con animaciones suaves
---------------------------------*/
+/* ANIMACIÓN DE PULSO Y GLITCH PARA NOMBRE DE TÍTULO EN CONTACTO*/
 
 @keyframes neonPulse {
     0% {
@@ -142,37 +139,3 @@
     animation: linkPulse 0.8s ease-in-out;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .contact-wrapper {
-        flex-direction: column;
-    }
-
-    .contact-image,
-    .contact-info {
-        flex: 1 1 100%;
-        height: auto;
-    }
-
-    .contact-info {
-        padding: 20px;
-        border-left: none;
-        border-top: 1px solid rgba(0,255,255,0.2);
-    }
-
-    .contact-info h2 {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-
-    .contact-info p,
-    .contact-list li,
-    .social-list li {
-        font-size: 1rem;
-    }
-
-    .contact-list,
-    .social-list {
-        text-align: center;
-    }
-}

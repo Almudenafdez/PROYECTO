@@ -29,15 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
     modalImg.alt = item.title || "Imagen";
     modalCaption.innerHTML = `<strong>${escapeHtml(item.title)}</strong><br><em>por ${escapeHtml(item.author)}</em>`;
 
-    // opcional: desactivar/activar botones si no quieres wrap-around
-    // prevBtn.disabled = (currentIndex === 0);
-    // nextBtn.disabled = (currentIndex === images.length - 1);
   }
 
   function openModal(index) {
     updateModal(index);
     modal.classList.add("active");
-    // for accessibility: trap focus? (simple approach)
     closeBtn?.focus?.();
     document.body.style.overflow = "hidden"; // evitar scroll de fondo
   }
@@ -52,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = ""; // restaurar scroll
   }
 
-  // Escapar HTML para evitar XSS si vienen datos poco fiables
+  // Escapar HTML para evitar XSS si vienen datos poco fiables (no se si es recomendable)
   function escapeHtml(str) {
     if (!str) return "";
     return str.replace(/[&<>"'`]/g, (s) => {
@@ -100,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModal();
   });
 
-  // Cerrar clicando fuera del contenido (no cuando clicas dentro del modal-content)
+  // Cerrar clicando fuera del contenido 
   modal.addEventListener("click", (e) => {
     // si hay un wrapper específico, comprueba que el click no vino dentro de él
     if (modalContent) {
@@ -136,9 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Evitar que el modal abierto deje atrás capas interceptando clicks en algunos navegadores:
   // Nos aseguramos de usar la clase "active" en vez de manipular display directamente.
-  // (La CSS que te pasé maneja pointer-events y z-index correctamente.)
-
-  // Mejora opcional: swipe en móviles (simple)
   let touchStartX = 0;
   let touchEndX = 0;
 

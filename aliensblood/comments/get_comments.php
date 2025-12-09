@@ -1,3 +1,4 @@
+<!-- devuelve quien y en qué imagen se puso el comentario-->
 <?php
 session_start();
 require_once '../includes/db.php';

@@ -1,8 +1,4 @@
-/* NOVEDADES.CSS - Cyberpunk Professional Theme */
-
-/* Complete redesign with cyberpunk aesthetics */
-
-/* Main section styling */
+/* principal */
 main {
   min-height: calc(100vh - 200px);
   padding: 2rem;
@@ -29,7 +25,7 @@ main section h2 {
   }
 }
 
-/* Gallery grid layout */
+/* LAYOUT GALERÍA */
 main .design-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -39,7 +35,7 @@ main .design-gallery {
   margin: 0 auto;
 }
 
-/* Design item cards with cyberpunk styling */
+/* DISEÑO DE LA GALERÍA */
 main .design-gallery .design-item {
   width: 100%;
   cursor: pointer;
@@ -53,7 +49,7 @@ main .design-gallery .design-item {
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 15px rgba(0, 255, 255, 0.1);
 }
 
-/* Animated border effect */
+/* BORDES ANIMADOS */
 main .design-gallery .design-item::before {
   content: "";
   position: absolute;
@@ -88,7 +84,7 @@ main .design-gallery .design-item:hover {
   border-color: #ff00ff;
 }
 
-/* Image container with overlay effect */
+/* CONTENEDOR IMAGEN */
 main .design-gallery .design-item img {
   width: 100%;
   height: 300px;
@@ -102,7 +98,7 @@ main .design-gallery .design-item:hover img {
   filter: brightness(1.1) contrast(1.1);
 }
 
-/* Title and author styling */
+/* TÍTULO Y AUTOR*/
 main .design-gallery .design-item h4 {
   color: #00ffff;
   margin-top: 1rem;
@@ -119,14 +115,14 @@ main .design-gallery .design-item p {
   text-shadow: 0 0 5px #ff00ff;
 }
 
-/* Adding black text color for author when hover effect is active */
+/* PONER NEGRO CUANDO EL MOUSE PASA ENCIMA */
 main .design-gallery .design-item:hover p {
   color: #000000;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
   font-weight: bold;
 }
 
-/* Modal styling with cyberpunk theme */
+/* ESTILO EN GENERAL */
 body .modal {
   display: none;
   position: fixed;
@@ -204,7 +200,7 @@ body .modal .modal-content p {
   text-shadow: 0 0 10px #ff00ff;
 }
 
-/* Close button with cyberpunk style */
+/* BOTÓN CYBERPUNK */
 body .modal .close-btn {
   cursor: pointer;
   font-size: 2rem;
@@ -233,7 +229,6 @@ body .modal .close-btn:hover {
   transform: rotate(90deg);
 }
 
-/* Navigation buttons in modal */
 body .modal .modal-nav-buttons {
   margin-top: 2rem;
   display: flex;
@@ -271,7 +266,6 @@ body .modal .modal-nav-buttons button:active {
   transform: translateY(-1px);
 }
 
-/* Back to home button */
 .back-btn-cyberpunk {
   position: fixed;
   bottom: 30px;
@@ -300,7 +294,7 @@ body .modal .modal-nav-buttons button:active {
   text-shadow: 0 0 15px #ff00ff;
 }
 
-/* Error message styling */
+/*cuando haya algún error*/
 .error {
   color: #ff00ff;
   text-align: center;
@@ -312,7 +306,6 @@ body .modal .modal-nav-buttons button:active {
   box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
 }
 
-/* Empty state message */
 main .design-gallery p {
   grid-column: 1 / -1;
   text-align: center;
@@ -320,47 +313,4 @@ main .design-gallery p {
   font-size: 1.3rem;
   padding: 3rem;
   text-shadow: 0 0 10px #00ffff;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  main .design-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-
-  main section h2 {
-    font-size: 2rem;
-    letter-spacing: 0.2rem;
-  }
-
-  body .modal .modal-content {
-    padding: 1.5rem;
-  }
-
-  body .modal .modal-nav-buttons {
-    flex-direction: column;
-  }
-
-  body .modal .modal-nav-buttons button {
-    width: 100%;
-  }
-
-  .back-btn-cyberpunk {
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  main .design-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  main section h2 {
-    font-size: 1.5rem;
-  }
 }
