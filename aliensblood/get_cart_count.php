@@ -1,3 +1,5 @@
+
+<!--cuenta del carrito -->
 <?php
 session_start();
 

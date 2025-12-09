@@ -1,4 +1,4 @@
-<!-- GALLERY.PHP -->
+
 <?php
 require 'includes/db.php';
 session_start();
@@ -27,6 +27,8 @@ $ideas = $stmt->fetchAll();
 <main class="gallery-container">
     <h2 class="gallery-title">GALERÍA PÚBLICA</h2>
 
+    
+<!--cargando de toda la bbdd -->
     <div class="gallery-grid">
         <?php foreach ($ideas as $idea): ?>
             <div class="gallery-item cyber-card">

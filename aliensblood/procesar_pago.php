@@ -1,3 +1,5 @@
+<!--procesa tarjetas, crea un pedido en tu base de datos y limpia el carrito. -->
+
 <?php
 session_start();
 require_once 'includes/db.php';

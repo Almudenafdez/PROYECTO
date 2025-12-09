@@ -1,3 +1,5 @@
+
+<!--diseñadores en la bbdd -->
 <?php
 require_once 'includes/db.php';
 

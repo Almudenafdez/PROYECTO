@@ -3,7 +3,7 @@
 session_start();
 require_once 'includes/db.php';
 
-// Solo 3 diseñadores para el slider
+// Solo 3 diseñadores para el slider (los que sean ya solo cambiar el número 3)
 $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
 ?>
 
@@ -17,6 +17,8 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
     <link rel="stylesheet" href="assets/css/censorship.css" />
 </head>
 <body>
+    
+<!--header -->
     <header>
         <h1 class="site-title">ALiENS BLooD</h1>
         <nav>
@@ -39,6 +41,8 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
         </nav>
     </header>
 
+    
+<!--slider -->
     <main>
         <section class="slider-section">
             <h2>Diseñadores Destacados</h2>
@@ -60,6 +64,7 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
                     <?php endforeach; ?>
                 </div>
 
+<!--botones slider -->
                 <button id="next-btn" class="slider-btn" aria-label="Siguiente">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
@@ -68,6 +73,7 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
             </div>
         </section>
 
+<!--la galería de los admin diseñadores -->
         <section class="design-gallery">
     <h2>Galería de Diseños</h2>
     <?php
@@ -122,7 +128,17 @@ $designers = $pdo->query("SELECT * FROM designers LIMIT 3")->fetchAll();
 
 
 
-        <a href="index.php" style="position: fixed; bottom: 20px; right: 20px; background-color: #000; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 999;">
+<!--botón -->
+        <a href="index.php" style="position: fixed; 
+        bottom: 20px; 
+        right: 20px; 
+        background-color: #000;
+         color: #fff; 
+         padding: 10px 15px;
+          border-radius: 8px; 
+          text-decoration: none; 
+          z-index: 999;">
+
             Volver al Inicio
         </a>
     </main>

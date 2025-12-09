@@ -1,8 +1,9 @@
-<!-- INDEX.PHP -->
+
 <?php session_start(); ?> 
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!--estilos -->
   <meta charset="UTF-8">
   <title>ALiENS BLooD</title>
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -16,6 +17,7 @@
 </head>
 <body>
 
+<!--header -->
 <header>
   <h1 class="site-title">ALiENS BLooD</h1>
   <nav>
@@ -176,6 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
 }
 ?>
 
+<!--TEST DISEÑO -->
 <div class="cyber-container">
   <div class="cyber-header">
     <h1 class="cyber-title">DESCUBRE TU ESTILO DE TATUAJE</h1>
@@ -390,6 +393,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
   <br>
 </div>
 
+
+
 <!-- NOVEDADES -->
 <section class="novedades-section">
   <div class="novedades-container">
@@ -429,12 +434,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
 </section>
 
 
+
+
 <!-- SUSCRIPCIONES-->
 <section class="subscribe-section">
   <h2>Suscríbete y accede a contenido exclusivo</h2>
   <p>Por solo <strong>4,99€ al mes</strong>, podrás subir tus ideas, acceder a diseños únicos y recibir descuentos exclusivos.</p>
   <a href="/aliensblood/users/subscribe.php" class="btn">Suscribirse</a>
 </section>
+
+
+
 
 <!-- ANUNCIOS CON IMAGEN -->
 <section class="benefits">
@@ -458,6 +468,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
   </div>
 </section>
 
+
+
+
 <!-- CONTACTO RECORDATORIO -->
 <section class="intro-contacto">
   <h1>Te recordamos nuestras redes y otras formas de contactos</h1>
@@ -473,6 +486,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['estetica'])) {
 <footer>
   <p>&copy; <?= date("Y") ?> ALiENS BLooD. Todos los derechos reservados.</p>
 </footer>
+
+
+
 
 <!-- Banner de cookies -->
 <div id="cookie-banner" class="cookie-banner">

@@ -1,3 +1,8 @@
+<!-- Cuando el usuario llega, 
+ lo primero que hace es comprobar si la sesión contiene un user_id. 
+ Si no, lo redirige sin preguntar hacia login.php-->
+
+ 
 <?php
 session_start();
 require_once 'includes/db.php';
@@ -45,6 +50,7 @@ try {
     <link rel="stylesheet" href="assets/css/checkout.css">
 </head>
 <body>
+<!-- header-->
 <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>
@@ -64,6 +70,7 @@ try {
     <section class="checkout-container">
         <h2>Checkout</h2>
         
+<!-- comprobación de cantidad-->
         <div class="checkout-content">
             <div class="order-summary">
                 <h3>Resumen del Pedido</h3>
@@ -80,6 +87,7 @@ try {
                 </div>
             </div>
 
+<!-- comprobación de pago-->
             <form method="POST" action="procesar_pago.php" class="payment-form">
                 <h3>Información de Pago</h3>
                 
@@ -104,6 +112,7 @@ try {
                     </div>
                 </div>
 
+<!-- procesar pago porque está todo bien-->
                 <button type="submit" class="pay-btn">Procesar Pago</button>
                 <a href="cart.php" class="back-link">Volver al Carrito</a>
             </form>

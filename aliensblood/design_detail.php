@@ -85,6 +85,7 @@ try {
 </head>
 <body data-design-id="<?= $design['id'] ?>">
 
+<!--header -->
 <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>
@@ -100,6 +101,8 @@ try {
 </header>
 
 <main>
+    
+<!--diseño de los detalles de la imagen -->
     <section class="design-detail">
         <h2><?= htmlspecialchars($design['title']) ?></h2>
 

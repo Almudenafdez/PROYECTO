@@ -12,6 +12,7 @@ session_start();
 <body class="dark-mode">
 <header>
     <h1 class="site-title">ALiENS BLooD</h1>
+<!--header -->
     <nav>
         <ul>
             <li><a href="index.php">Inicio</a></li>
@@ -30,6 +31,9 @@ session_start();
             <?php endif; ?>
         </ul>
     </nav>
+
+    
+<!--selección del menú desplegable -->
 <select id="theme-select">
     <option value="dark-mode" selected>Oscuro</option>
     <option value="light-mode">Claro</option>
@@ -39,6 +43,7 @@ session_start();
 
 </header>
 
+<!--texto de políticas y acuerdos -->
 <main>
     <section class="legal-section">
         <h2>Política de Privacidad y Términos de Uso</h2>

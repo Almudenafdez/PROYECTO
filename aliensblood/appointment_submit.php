@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require_once 'includes/db.php'; 
@@ -24,6 +25,20 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Email no válido.";
 if ($date === '') $errors[] = "Fecha requerida.";
 if ($time === '') $errors[] = "Hora requerida.";
 if ($designer_id === '') $errors[] = "Selecciona un diseñador.";
+
+if (empty($errors)) {
+    try {
+        $checkStmt = $pdo->prepare("SELECT COUNT(*) FROM appointments WHERE designer_id = ? AND date = ? AND time = ?");
+        $checkStmt->execute([$designer_id, $date, $time]);
+        $count = $checkStmt->fetchColumn();
+        
+        if ($count > 0) {
+            $errors[] = "Lo sentimos, ese horario ya está reservado para este diseñador. Por favor, elige otra fecha u hora.";
+        }
+    } catch (PDOException $e) {
+        $errors[] = "Error al verificar disponibilidad: " . $e->getMessage();
+    }
+}
 
 if (!empty($errors)) {
     echo "<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><title>Error</title>";

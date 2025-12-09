@@ -38,6 +38,7 @@ try {
     <link rel="stylesheet" href="assets/css/shop.css">
 </head>
 <body>
+<!--header -->
 <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>
@@ -61,6 +62,7 @@ try {
     </nav>
 </header>
 
+<!-- modal -->
 <main>
     <section class="shop-section">
         <h2>Diseños Disponibles</h2>
@@ -80,7 +82,7 @@ try {
                 <?php endforeach; ?>
             </select>
         </form>
-
+<!--carta de las imágenes de los diseñadores por bbdd  -->
                 <div class="designs-grid">
         <?php foreach ($designs as $design): 
             $is_nsfw = isset($design['is_nsfw']) ? $design['is_nsfw'] : 
@@ -98,11 +100,13 @@ try {
                     <?php endif; ?>
                 </div>
                 <h3><?= htmlspecialchars($design['title']) ?></h3>
-
+<!-- APLIQUE DE CENSURA-->
                 <?php if ($is_nsfw): ?>
                     <span class="adult-warning">+18</span>
                 <?php endif; ?>
 
+                
+<!-- ACCIÓN BOTÓN-->
                 <div class="design-actions">
                     <div class="quantity-counter">
                         <button type="button" class="qty-btn" data-action="decrement">−</button>

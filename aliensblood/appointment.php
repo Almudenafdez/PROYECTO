@@ -1,3 +1,4 @@
+<!-- appointment.php-->
 <?php
 session_start();
 ?>
@@ -11,6 +12,7 @@ session_start();
   <link rel="stylesheet" href="assets/css/appointment.css">
 </head>
 <body>
+  <!--header -->
   <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>
@@ -32,7 +34,7 @@ session_start();
       </ul>
     </nav>
   </header>
-
+<!--formulario -->
   <main class="appointment-container">
     <h2>Solicita tu cita</h2>
     <form action="appointment_submit.php" method="POST">

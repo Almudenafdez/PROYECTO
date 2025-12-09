@@ -1,3 +1,5 @@
+<!-- OVERLAY QUE DICE GRACIAS POR COMPRAR Y DICE SI QUIERES VOLVER A LA PÁGINA-->
+
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {

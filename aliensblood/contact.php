@@ -9,6 +9,7 @@
 </head>
 <body>
  <nav>
+<!--header -->
     <ul>
         <li><a href="index.php">Inicio</a></li>
       <li><a href="novedades.php">Novedades</a></li>
@@ -33,6 +34,7 @@
             <img src="assets/img/background_2.png" alt="Imagen contacto">
         </div>
 
+<!--PANEL DE CONTACTO -->
         <div class="contact-info">
             <h2>Contacta con ALiENS BLooD</h2>
             <p>Estamos disponibles para consultas y citas. Contáctanos por los siguientes medios:</p>

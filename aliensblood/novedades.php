@@ -1,4 +1,3 @@
-<!-- NOVEDADES.PHP -->
 <?php
 session_start();
 require_once 'includes/db.php';
@@ -23,6 +22,7 @@ try {
 
 </head>
 <body>
+    <!-- HEADER-->
 <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>
@@ -44,7 +44,7 @@ try {
         </ul>
     </nav>
 </header>
-
+<!-- carga las imágenes desde la bbddd -->
 <main>
     <section class="design-gallery" id="gallery">
         <h2>Novedades</h2>
@@ -56,7 +56,6 @@ try {
                 <p>No hay novedades disponibles.</p>
             <?php else: ?>
                 <?php foreach ($novedades as $index => $item): 
-                    // Corregido: ruta correcta de la imagen
                     $imgSrc = "novedades/" . htmlspecialchars($item['image_path']);
                 ?>
                     <div class="design-item" tabindex="0"
@@ -87,7 +86,7 @@ try {
         </div>
     </div>
 
-    <!-- Updated back button with cyberpunk class -->
+    <!-- botón -->
     <a href="index.php" class="back-btn-cyberpunk">
         Volver al Inicio
     </a>

@@ -1,4 +1,4 @@
-<!-- CART.PHP-->
+
 <?php
 session_start();
 require_once 'includes/db.php';
@@ -57,6 +57,7 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="assets/css/cart.css">
 </head>
 <body>
+    <!--header -->
 <header>
     <h1 class="site-title">ALiENS BLooD</h1>
     <nav>
@@ -103,7 +104,7 @@ if (isset($_SESSION['user_id'])) {
         <?php endif; ?>
     </section>
 
-    <!-- resto del código para pedidos anteriores y footer sin cambios -->
+    <!-- resto del código para pedidos  -->
 
     <?php if (isset($_SESSION['user_id'])): ?>
     <section class="order-history">
